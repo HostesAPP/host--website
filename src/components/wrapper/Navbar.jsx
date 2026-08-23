@@ -2,6 +2,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Button from "../button";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoCloseSharp } from "react-icons/io5";
+import { useState } from "react";
 
 const navlinks = [
   { id: 1, name: "Find Staff", href: "/find-staff" },
@@ -11,18 +16,70 @@ const navlinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+  const mobilestyling = `${isOpen ? "translate-x-0" : "-translate-x-full"}`;
   return (
-    <nav className="py-4 flex justify-center">
-      <div className="flex items-center justify-between">
-        <Link href={"/"} className="relative block h-6.75 w-25.25">
-          <Image
-            src={"/images/logo.png"}
-            fill
-            alt="Logo Image"
-            className="object-contain"
-          />
-        </Link>
-        <div className="navlinks font-primary flex gap-6">
+    <nav className="mt-5 py-4 px-6 flex md:justify-center w-full md:w-fit mx-auto bg-white/10 rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15)]">
+      <div className="flex items-center justify-between md:space-x-18 w-full">
+        <div className="hamburger-menu md:hidden">
+          <button className="cursor-pointer" onClick={handleOpen}>
+            <GiHamburgerMenu />
+          </button>
+        </div>
+
+        <div className="image-container ml-auto">
+          <Link
+            href={"/"}
+            className="relative md:block md:h-6.75 md:w-25.25 h-5 w-18.25 flex items-center justify-center mb-2"
+          >
+            <Image
+              src={"/images/logo.png"}
+              fill
+              alt="Logo Image"
+              className="object-cover"
+            />
+          </Link>
+        </div>
+        {/* Mobile Navigation */}
+        <div
+          className={`${mobilestyling} mobile-nav bg-white z-50 absolute md:hidden bg-neutral w-[75%] h-screen top-0 left-0 py-20 px-8 shadow-2xl transition-all duration-1000`}
+        >
+          <div className="mobile-nav-container">
+            <div className="top-heading flex justify-between items-center mb-10">
+              <Link href="/" className="relative block h-6.75 w-25.25">
+                <Image
+                  src={"/images/logo.png"}
+                  fill
+                  alt="Logo Image"
+                  className="object-contain"
+                />
+              </Link>
+              <button className="cursor-pointer" onClick={handleClose}>
+                <IoCloseSharp />
+              </button>
+            </div>
+            <div className="nav-content flex flex-col gap-6">
+              {navlinks.map(({ id, name, href }) => (
+                <Link
+                  className="link-content flex gap-3 items-center font-extralight w-fit"
+                  key={id}
+                  href={href}
+                >
+                  {/* <span>{link.icon}</span>{" "} */}
+                  <span className="text-[14px]">{name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* Desktop Navigation */}
+        <div className="navlinks font-primary md:flex items-center gap-8 hidden">
           {navlinks.map(({ name, href, id }) => (
             <Link
               key={id}
@@ -32,6 +89,9 @@ export default function Navbar() {
               {name}
             </Link>
           ))}
+        </div>
+        <div className="get-started hidden md:block">
+          <Button text={`Get Started`} icon={<FaArrowRightLong />} />
         </div>
       </div>
     </nav>
