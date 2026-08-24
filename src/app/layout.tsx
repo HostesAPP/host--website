@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { Hanken_Grotesk, Montserrat } from "next/font/google";
+import type { ReactNode } from "react";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
@@ -11,12 +13,12 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Hosté | Your No 1 Staffing Platform",
   description: "Your No 1 staffing Platform",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html
       lang="en"
