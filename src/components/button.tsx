@@ -1,6 +1,14 @@
+import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from "react";
 import styled from "styled-components";
 
-const Button = ({ text, icon, ...props }) => {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  text: string;
+  icon?: ReactNode;
+};
+
+type IndexStyle = CSSProperties & { "--index": number };
+
+const Button = ({ text, icon, ...props }: ButtonProps) => {
   const characters = text.split("");
 
   return (
@@ -11,7 +19,7 @@ const Button = ({ text, icon, ...props }) => {
             {characters.map((char, index) => (
               <span
                 key={`current-${index}`}
-                style={{ "--index": index }}
+                style={{ "--index": index } as IndexStyle}
                 className="text-[16px]"
               >
                 {char}
@@ -19,7 +27,10 @@ const Button = ({ text, icon, ...props }) => {
             ))}
 
             {icon && (
-              <span className="icon" style={{ "--index": characters.length }}>
+              <span
+                className="icon"
+                style={{ "--index": characters.length } as IndexStyle}
+              >
                 {icon}
               </span>
             )}
@@ -27,13 +38,19 @@ const Button = ({ text, icon, ...props }) => {
 
           <span className="span-mother2">
             {characters.map((char, index) => (
-              <span key={`next-${index}`} style={{ "--index": index }}>
+              <span
+                key={`next-${index}`}
+                style={{ "--index": index } as IndexStyle}
+              >
                 {char}
               </span>
             ))}
 
             {icon && (
-              <span className="icon" style={{ "--index": characters.length }}>
+              <span
+                className="icon"
+                style={{ "--index": characters.length } as IndexStyle}
+              >
                 {icon}
               </span>
             )}
