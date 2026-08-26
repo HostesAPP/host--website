@@ -4,6 +4,7 @@ import styled from "styled-components";
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   text: string;
   icon?: ReactNode;
+  // bgColor?: string;
 };
 
 type IndexStyle = CSSProperties & { "--index": number };
@@ -65,13 +66,12 @@ const StyledWrapper = styled.div`
   button {
     box-sizing: border-box;
     font-weight: bold;
-    color: white;
     border-radius: 2rem;
     cursor: pointer;
     height: 42.66px;
     padding: 0 42px;
-    border: none;
-    background-color: #ef5a22;
+    // border: none;
+    // background-color: #ef5a22;
     display: flex;
     align-items: center;
     justify-content: center;

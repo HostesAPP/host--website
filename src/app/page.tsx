@@ -1,6 +1,8 @@
 "use client";
 import Button from "@/components/button";
 import Image from "next/image";
+import { BsPersonCheck } from "react-icons/bs";
+import { MdShield, MdGroups2 } from "react-icons/md";
 import GridBackground from "@/components/GridBackground";
 import { useRouter } from "next/navigation";
 
@@ -28,6 +30,33 @@ const CarouselItems = [
       { num: 0, desc: "" },
       { num: 0, desc: "" },
     ],
+  },
+];
+
+const Offerings = [
+  {
+    title: "Vetted Professionals",
+    description:
+      "Every Hosté is identity-verified andnperformance-rated. Quality guaranteed.",
+    icon: <BsPersonCheck />,
+    bgColor: "#D044081A",
+    opacity: 10,
+  },
+  {
+    title: "Secure Escrow",
+    description:
+      "Payments are held safely until the event is successfully completed.",
+    icon: <MdShield />,
+    bgColor: "#9EF6B633",
+    opacity: 20,
+  },
+  {
+    title: "Group Bookings",
+    description:
+      "Staff entire events in minutes, not days. Seamless coordination.",
+    icon: <MdGroups2 />,
+    bgColor: "#75765A1A",
+    opacity: 10,
   },
 ];
 
@@ -123,6 +152,87 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        <section className="rate md:py-20 flex flex-col md:flex-row justify-between font-primary space-y-20">
+          <div className="section-description lg:max-w-125 flex flex-col md:items-start items-center space-y-8">
+            <p className="font-semibold text-[24px] md:text-[32px] leading-10 tracking-[-0.32px]">
+              Your skills. Your rate.{" "}
+              <span className="text-primary">Paid fast.</span>
+            </p>
+            <p className="font-normal text-[12px] md:text-[16px] leading-6 tracking-normal text-center md:text-justify">
+              Join the elite network of hospitality professionals. Build a
+              stunning professional profile, enjoy transparent earnings, and
+              rely on guaranteed payments through our Green Escrow system.
+            </p>
+            <Button text="Become a Hosté" className="bg-[#ef5a22] text-white" />
+          </div>
+          <div className="image relative h-158.5 md:w-162.5">
+            <Image
+              src={"/images/rate-image.png"}
+              alt="An Hosté worker"
+              fill
+              sizes="(max-width: 768px) 350px, 650px"
+              className="object-cover rounded-[20px]"
+            />
+          </div>
+        </section>
+        <section className="offers font-primary pt-20 md:pt-0">
+          <h2 className="font-bold text-[32px] leading-8 text-primary text-center font-secondary">
+            The Marketplace for Excellence
+          </h2>
+          <p className="description font-primary font-normal text-[16px] leading-6.5 text-center mt-5">
+            Elevate your events with reliable, top-tier talent managed
+            effortlessly.
+          </p>
+          <div className="offerings flex flex-col md:flex-row gap-6 my-10">
+            {Offerings.map(({ title, description, icon, bgColor, opacity }) => {
+              const hexToRgba = (hex: string, opacity: number) => {
+                const cleanHex = hex.replace("#", "");
+
+                const r = parseInt(cleanHex.substring(0, 2), 16);
+                const g = parseInt(cleanHex.substring(2, 4), 16);
+                const b = parseInt(cleanHex.substring(4, 6), 16);
+
+                return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+              };
+              return (
+                <div
+                  className="offer bg-[#ffffff] p-16 rounded-[30px] flex flex-col gap-4"
+                  key={title}
+                >
+                  <h3
+                    className="h-12 w-12 flex items-center justify-center rounded-full"
+                    style={{
+                      backgroundColor: hexToRgba(bgColor, opacity / 100),
+                    }}
+                  >
+                    {icon}
+                  </h3>
+                  <h4 className="capitalize font-bold text-[20px] leading-8 text-[#1C1B1B]">
+                    {title}
+                  </h4>
+                  <p className="font-normal text-[16px] leading-7.5">
+                    {description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-[#FAFAFA] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 md:mb-8">
+          <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
+            Join our journey of professional excellence.
+          </h2>
+          <div className="buttons flex flex-col md:flex-row items-center justify-center gap-4 mt-10">
+            <Button
+              text="Hire Staff"
+              className="bg-white text-primary w-59.75"
+            />
+            <Button
+              text="Become a Host"
+              className="bg-transparent border border-white text-white w-59.75"
+            />
           </div>
         </section>
       </div>
