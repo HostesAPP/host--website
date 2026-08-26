@@ -87,7 +87,11 @@ export default function Navbar() {
           ))}
         </div>
         <div className="get-started hidden md:block">
-          <Button text="Get Started" icon={<FaArrowRightLong />} />
+          <Button
+            text="Get Started"
+            icon={<FaArrowRightLong />}
+            className="bg-primary text-white"
+          />
         </div>
       </div>
     </nav>
