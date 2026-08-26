@@ -46,7 +46,7 @@ export default function Footer() {
             </h3>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
-            <div>
+            <div key={title}>
               <h3 className="footer-sub-heading footer-links-heading mb-3">
                 {title}
               </h3>
