@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
   --primary: #ef5a22;
 }
@@ -24,7 +24,70 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
+}
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      #fff,
+      #fff 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      -90deg,
+      #fff,
+      #fff 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  height: 100%;
+  width: 100%;
+  opacity: 0.14;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -4;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 63px;
+}
+.num {
+  font-weight: 700;
+  font-size: 32px;
+  height: 36px;
+  letter-spacing: 0px;
+  color: var(--primary);
+}
+
+.name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .stat {
+    height: 48px;
+  }
+  .name {
+    font-size: 10px;
+    height: 20px;
+  }
+  .num {
+    font-size: 24px;
+    height: 26px;
+  }
 }
 
 .footer-links-heading {
