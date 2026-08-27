@@ -76,6 +76,27 @@ body {
   color: #ffffff;
 }
 
+.searchbar {
+  width: 672px;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px 0px 12px;
+  border: solid 0.5px #d3d3d3;
+  border-radius: 30px;
+}
+
+.searchbar input {
+  height: 100%;
+  width: 100%;
+  padding: 16.5px 2px 16.5px 12px;
+  outline: none;
+}
+
+.searchbar input::placeholder {
+  font-size: 12px;
+  font-weight: 400;
+}
+
 @media (max-width: 768px) {
   .stat {
     height: 48px;
