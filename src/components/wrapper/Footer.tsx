@@ -57,7 +57,7 @@ export default function Footer() {
                     <Link
                       key={name}
                       href={href}
-                      className={`footer-link w-fit ${isActive ? "text-primary" : ""}`}
+                      className={`footer-link font-primary w-fit ${isActive ? "text-primary" : ""}`}
                     >
                       {name}
                     </Link>
