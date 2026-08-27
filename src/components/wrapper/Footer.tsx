@@ -55,8 +55,8 @@ export default function Footer() {
                   const isActive = pathname === href;
                   return (
                     <Link
-                      href={href}
                       key={name}
+                      href={href}
                       className={`footer-link font-primary ${isActive ? "text-primary" : ""}`}
                     >
                       {name}
