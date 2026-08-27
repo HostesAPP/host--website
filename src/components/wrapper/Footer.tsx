@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { link } from "node:fs";
 
 const footerLinks = {
   Discover: [
@@ -55,6 +56,7 @@ export default function Footer() {
                   const isActive = pathname === href;
                   return (
                     <Link
+                      key={name}
                       href={href}
                       className={`footer-link w-fit ${isActive ? "text-primary" : ""}`}
                     >
