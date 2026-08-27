@@ -4,6 +4,9 @@ import Switch from "@/components/switch";
 import Image from "next/image";
 import { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+import { profiles } from "@/lib/profile";
+import ProfileCard from "@/components/profile-card";
+
 export default function FindStaff() {
   const [ischecked, setIsChecked] = useState(false);
   return (
@@ -26,8 +29,8 @@ export default function FindStaff() {
               <Button text="Search" className="bg-primary text-white" />
             </div>
           </div>
-          <div className="filters_workers font-primary grid grid-cols-4">
-            <div className="filter-container col-span-1 border border-[#E5E2E1] p-8 rounded-3xl">
+          <div className="filters_workers font-primary grid md:grid-cols-4 gap-10">
+            <div className="filter-container md:col-span-1 border border-[#E5E2E1] p-8 rounded-3xl h-fit">
               <div className="filter-header flex justify-between border-b border-[#DCD9D9] pb-4">
                 <h3 className="font-semibold text-[20px] leading-7">Filters</h3>
                 <button className="font-medium text-[14px] leading-5 text-primary cursor-pointer">
@@ -78,7 +81,24 @@ export default function FindStaff() {
                 />
               </div>
             </div>
-            <div className="hostess-display col-span-3"></div>
+            <div className="hostess-display md:col-span-3">
+              <div className="header flex justify-between">
+                <p className="text-[16px] font-normal leading-6">
+                  Showing 42 available professionals in Lagos.
+                </p>
+                <div className="sorting flex">
+                  <p>Sort by:</p>
+                  <select name="sortBy" id="sortBy">
+                    <option value="recommended">Recommended</option>
+                  </select>
+                </div>
+              </div>
+              <div className="card mt-7 flex gap-15">
+                {profiles.map((profile) => (
+                  <ProfileCard profile={profile} />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </div>
