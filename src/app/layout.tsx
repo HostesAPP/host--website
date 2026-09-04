@@ -28,11 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${hanken.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-        <main className="pt-10 z-10 relative">{children}</main>
-        <Footer />
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
