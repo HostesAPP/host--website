@@ -21,7 +21,7 @@ export default function Navbar() {
   const mobilestyling = `${isOpen ? "translate-x-0" : "-translate-x-full"}`;
 
   return (
-    <nav className="bg-transparent">
+    <nav className="bg-transparent z-100">
       <div className="nav-container mt-5 z-100 py-4 px-6 flex md:justify-center w-full md:w-fit mx-auto bg-white/10 rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15),inset_0_-4px_20px_-12px_rgba(0,0,0,0.15)]">
         <div className="flex items-center justify-between md:space-x-18 w-full">
           <div className="hamburger-menu md:hidden">
