@@ -72,28 +72,37 @@ export default function Home() {
               <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10">
                 Book a <span className="text-primary">Hostess</span> Today
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center">
+              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
+                Hosté solves the challenge of helping brands and clubs quickly
+                find, book and reliably manage verified event staff without the
+                stress and uncertainty of traditional staffing.
+              </p>
+              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden">
                 Hosté is a platform where Brands and Event Planners can book
                 Event Staffs.
               </p>
               <div className="book-now mt-6">
-                <Button text="Book Now" onClick={() => router.push("/")} />
+                <Button
+                  text="Book Now"
+                  onClick={() => router.push("/")}
+                  className="bg-[#ef5a22] text-white"
+                />
               </div>
               <div className="images">
-                <div className="mobile-image md:hidden">
+                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-95">
                   <Image
-                    src={"/images/sarah-mobile.png"}
-                    height={400}
-                    width={400}
+                    src={"/images/erica-mobile.png"}
+                    fill
                     sizes=""
                     alt="Hosté Worker"
+                    className="object-cover"
                   />
                 </div>
                 <div className="left-image absolute -left-50 top-20 hidden md:block">
                   <Image
-                    src={"/images/sarah.png"}
-                    height={400}
-                    width={400}
+                    src={"/images/salewa.png"}
+                    height={800}
+                    width={800}
                     sizes=""
                     alt="Hosté Worker"
                   />
@@ -101,9 +110,9 @@ export default function Home() {
 
                 <div className="right-image absolute -right-50 top-20 hidden md:block">
                   <Image
-                    src={"/images/bimpe.png"}
-                    height={600}
-                    width={450}
+                    src={"/images/erica.png"}
+                    height={800}
+                    width={800}
                     alt="Bimpe Hosté worker"
                     // className="object-contain"
                   />
