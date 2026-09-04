@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <div className="relative">
       <div className="container mx-auto px-6">
-        <GridBackground className="absolute left-0 -top-55 -z-10 h-screen w-full" />
+        <GridBackground className="absolute left-0 -top-45 -z-10 h-screen w-full" />
         <section>
           <div className="hero-container relative flex flex-col justify-center items-center md:h-[85vh]">
             <div className="hero-content flex flex-col justify-center items-center">
