@@ -14,7 +14,7 @@ const footerLinks = {
     { name: "Referral Program", href: "/referral" },
   ],
   Company: [
-    { name: "About", href: "/find-staff" },
+    { name: "About", href: "/how-it-works" },
     { name: "Careers", href: "/groups" },
     { name: "Contact", href: "/contact" },
     { name: "Terms", href: "/term" },
