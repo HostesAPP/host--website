@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Hanken_Grotesk, Montserrat } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
-import Navbar from "@/components/wrapper/Navbar";
-import Footer from "@/components/wrapper/Footer";
 
 const hanken = Hanken_Grotesk({
   variable: "--font-hanken",
