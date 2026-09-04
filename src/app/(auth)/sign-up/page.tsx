@@ -13,16 +13,14 @@ export default function SignUp() {
     <>
       <GridBackground className="absolute inset-0 -z-10 h-screen w-full" />
       <main className="font-secondary relative">
-        <div className="go-back absolute top-2 left-2 md:top-55 md:left-135 flex h-10 w-10 items-center justify-center border border-gray-200 shadow-sm">
-          <button
-            type="button"
-            className="cursor-pointer"
-            onClick={() => router.back()}
-            aria-label="Go back"
-          >
-            <FaArrowLeftLong color="#EF5A22" />
-          </button>
-        </div>
+        <button
+          className="go-back absolute top-2 left-2 md:top-55 md:left-135 flex h-10 w-10 items-center justify-center border border-gray-200 shadow-sm cursor-pointer"
+          type="button"
+          onClick={() => router.back()}
+          aria-label="Go back"
+        >
+          <FaArrowLeftLong color="#EF5A22" />
+        </button>
         <div className="container mx-auto px-6">
           <div className="content flex flex-col space-y-4 items-center justify-center h-screen">
             <h1 className="font-extrabold text-[20px] md:text-[48px] text-primary text-center md:max-w-160">
