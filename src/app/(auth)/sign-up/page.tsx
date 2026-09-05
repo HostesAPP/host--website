@@ -33,30 +33,7 @@ export default function SignUp() {
               <Input type="text" placeholder="Full Name" />
               <Input type="email" placeholder="Type your email" />
             </div>
-            <div className="background-blur hidden md:block">
-              <Image
-                src={"/images/background-blur.png"}
-                alt="Blur Background"
-                height={256}
-                width={256}
-                className="object-contain absolute top-70 right-100"
-              />
-              <Image
-                src={"/images/background-blur2.png"}
-                alt="Blur Background"
-                height={500}
-                width={318}
-                className="object-contain absolute top-110 left-120"
-              />
-              <Image
-                src={"/images/background-blur.png"}
-                alt="Blur Background"
-                height={256}
-                width={256}
-                className="object-contain absolute top-120 right-150"
-              />
-            </div>
-            <Button text="Join Now" className="bg-primary text-white" />
+            <Button text="Join Now" className="bg-primary text-white w-49.25" />
           </div>
         </div>
       </main>
