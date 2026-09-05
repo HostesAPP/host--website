@@ -98,7 +98,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute -left-50 top-20 hidden md:block">
+                <div className="left-image absolute left-0 top-20 hidden md:block">
                   <Image
                     src={"/images/salewa.png"}
                     height={800}
@@ -108,7 +108,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="right-image absolute -right-50 top-20 hidden md:block">
+                <div className="right-image absolute right-0 top-20 hidden md:block">
                   <Image
                     src={"/images/erica.png"}
                     height={800}
