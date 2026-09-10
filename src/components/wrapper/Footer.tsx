@@ -14,7 +14,7 @@ const footerLinks = {
     { name: "Referral Program", href: "/referral" },
   ],
   Company: [
-    { name: "About", href: "/find-staff" },
+    { name: "About", href: "/how-it-works" },
     { name: "Careers", href: "/groups" },
     { name: "Contact", href: "/contact" },
     { name: "Terms", href: "/term" },
@@ -55,8 +55,9 @@ export default function Footer() {
                   const isActive = pathname === href;
                   return (
                     <Link
+                      key={name}
                       href={href}
-                      className={`footer-link font-primary ${isActive ? "text-primary" : ""}`}
+                      className={`footer-link font-primary w-fit ${isActive ? "text-primary" : ""}`}
                     >
                       {name}
                     </Link>
