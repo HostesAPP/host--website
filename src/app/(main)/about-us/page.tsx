@@ -8,7 +8,11 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
+<<<<<<< HEAD
+    <main className="about-page">
+=======
     <main className="about-page md:-mt-37.5 -mt-30 pt-30">
+>>>>>>> abt
       <section className="about-hero">
         <div className="about-hero-content">
           <h1>

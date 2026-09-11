@@ -5,6 +5,7 @@ import { BsPersonCheck } from "react-icons/bs";
 import { MdShield, MdGroups2 } from "react-icons/md";
 import GridBackground from "@/components/GridBackground";
 import { useRouter } from "next/navigation";
+import ScrollText from "@/components/ScrollText";
 
 const CarouselItems = [
   {
@@ -60,12 +61,15 @@ const Offerings = [
   },
 ];
 
+const text =
+  "Hosté is a technology platform that connects brands, hotels, clubs, and event planners with verified, professional event staff ushers, bartenders, hosts, performers, and more on demand";
+
 export default function Home() {
   const router = useRouter();
   return (
     <div className="relative">
       <div className="container mx-auto px-6">
-        <GridBackground className="absolute left-0 -top-55 -z-10 h-screen w-full" />
+        <GridBackground className="absolute left-0 -top-45 -z-10 h-screen w-full" />
         <section>
           <div className="hero-container relative flex flex-col justify-center items-center md:h-[85vh]">
             <div className="hero-content flex flex-col justify-center items-center">
@@ -98,7 +102,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute -left-50 top-20 hidden md:block">
+                <div className="left-image absolute left-0 top-20 hidden md:block">
                   <Image
                     src={"/images/salewa.png"}
                     height={800}
@@ -108,7 +112,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="right-image absolute -right-50 top-20 hidden md:block">
+                <div className="right-image absolute right-0 top-20 hidden md:block">
                   <Image
                     src={"/images/erica.png"}
                     height={800}
@@ -133,12 +137,12 @@ export default function Home() {
           </div>
         </section>
         <section className="sub-hero bg-[#fafafa] py-20 md:py-10">
-          <h2 className="font-bold text-[20px] md:text-[48px] leading-10 tracking-[-0.32px] text-center">
+          <h2 className="font-bold text-[20px] md:text-[48px] leading-10 tracking-[-0.32px] text-center mb-20">
             Nigeria's finest <span className="text-primary">Event Staff</span>,
             all in one place.
           </h2>
           {/* Here is a Carousel */}
-          <div className="section-details flex items-center justify-center mt-15">
+          {/* <div className="section-details flex items-center justify-center mt-15">
             <div className="group-image relative h-138.25 w-207.75">
               <Image
                 src={"/images/sub-section-image.png"}
@@ -161,7 +165,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+          <ScrollText
+            text={text}
+            className="font-bold text-[20px] md:text-[58px] md:leading-15 tracking-[0.7px]"
+          />
         </section>
         <section className="rate md:py-20 flex flex-col md:flex-row justify-between font-primary space-y-20">
           <div className="section-description lg:max-w-125 flex flex-col md:items-start items-center space-y-8">
