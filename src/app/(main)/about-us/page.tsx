@@ -27,6 +27,7 @@ export default function AboutPage() {
                                         matching, and group bookings.
                                         </p>
                                     </article>
+                                    
                                     <article className="about-card empowerment-card">
                                         <div className="empowerment-image">
                                                 <Image src="/images/hosteabout.jpg" alt="Event staff working at an event" fill sizes="(max-width: 768px) 100vw, 40vw" />
