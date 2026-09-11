@@ -511,16 +511,15 @@ body {
     width: 170px;
   }
 }
-/* =========================================
-   HOW IT WORKS PAGE
-========================================= */
+
+/* how it  works page */
 
 .how-it-works-page {
   --how-orange: #ed5b16;
   --how-green: #176b38;
   --how-green-dark: #105b2d;
   --how-text: #27231f;
-  --how-muted: #6b625b;
+  --how-muted:  #5A4139;
 
   min-height: 100vh;
   padding: 0 24px 80px;
@@ -534,10 +533,6 @@ body {
   overflow: hidden;
 }
 
-/* =========================================
-   HERO / HEADING
-========================================= */
-
 .how-it-works-page .how-hero {
   max-width: 650px;
   margin: 0 auto;
@@ -548,7 +543,7 @@ body {
 .how-it-works-page .how-hero h1 {
   margin: 0;
   color: var(--how-orange);
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(24px, 3vw, 32px);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -1.5px;
@@ -561,10 +556,6 @@ body {
   font-size: 13px;
   line-height: 1.8;
 }
-
-/* =========================================
-   FOUR STEPS
-========================================= */
 
 .how-it-works-page .how-steps {
   display: grid;
@@ -621,10 +612,6 @@ body {
   line-height: 1.75;
 }
 
-/* =========================================
-   GREEN ESCROW SECTION
-========================================= */
-
 .how-it-works-page .how-escrow {
   position: relative;
 
@@ -637,8 +624,6 @@ body {
   padding: 42px 40px;
 
   border-radius: 16px;
-
-  /* Rich multi-stop green gradient */
   background: linear-gradient(
     115deg,
     #0d4d27 0%,
@@ -651,8 +636,6 @@ body {
 
   overflow: hidden;
 }
-
-/* Extra gradient glow */
 .how-it-works-page .how-escrow::before {
   content: "";
 
@@ -673,7 +656,7 @@ body {
   );
 
   pointer-events: none;
-}
+} 
 
 /* Subtle dark gradient toward the image */
 .how-it-works-page .how-escrow::after {
@@ -750,10 +733,6 @@ body {
   line-height: 1.75;
 }
 
-/* =========================================
-   GUARANTEE ITEMS
-========================================= */
-
 .how-it-works-page .how-guarantees {
   display: flex;
   flex-wrap: wrap;
@@ -787,10 +766,6 @@ body {
   flex-shrink: 0;
 }
 
-/* =========================================
-   PERSON IMAGE
-========================================= */
-
 .how-it-works-page .how-person {
   position: absolute;
 
@@ -810,8 +785,6 @@ body {
   object-fit: contain;
   object-position: bottom right;
 }
-
-/* Image fade into green background */
 .how-it-works-page .how-person::after {
   content: "";
 
@@ -835,10 +808,6 @@ body {
 
   pointer-events: none;
 }
-
-/* =========================================
-   CTA
-========================================= */
 
 .how-it-works-page .how-cta {
   display: flex;
@@ -877,9 +846,6 @@ body {
   box-shadow: 0 6px 18px rgba(237, 91, 22, 0.22);
 }
 
-/* =========================================
-   TABLET
-========================================= */
 
 @media (max-width: 900px) {
   .how-it-works-page .how-steps {
@@ -908,9 +874,6 @@ body {
   }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
 
 @media (max-width: 600px) {
   .how-it-works-page {
