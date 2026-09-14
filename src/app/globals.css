@@ -161,7 +161,7 @@ body {
 .about-page .about-hero p {
   max-width: 560px;
   margin: 20px auto 0;
-  color: #5A4139;
+  color: #5a4139;
   font-family: var(--font-secondary);
   font-size: 14px;
   font-weight: 400;
@@ -221,7 +221,7 @@ body {
 
 .about-page .about-card p {
   margin: 0;
-  color: #5A4139;
+  color: #5a4139;
   font-family: var(--font-secondary);
   font-size: 14px;
   font-weight: 400;
@@ -302,7 +302,6 @@ body {
   line-height: 1.6;
 }
 
-
 .about-page .seamless-card {
   grid-column: 1 / -1;
   min-height: 240px;
@@ -310,15 +309,15 @@ body {
   background: #f5f5f5;
   border: 1px solid #e8e8e8;
   box-sizing: border-box;
-  color: #5A4139;
+  color: #5a4139;
 }
 .about-page .seamless-card p {
-  color: #5A4139;
+  color: #5a4139;
 }
 
 .about-page .seamless-card p + p {
   margin-top: 15px;
-  color:#5A4139
+  color: #5a4139;
 }
 
 .about-page .about-cta {
@@ -343,7 +342,6 @@ body {
   line-height: 1.2;
   letter-spacing: -1px;
 }
-
 
 .about-page .cta-buttons {
   display: flex;
@@ -509,5 +507,389 @@ body {
   .about-page .cta-primary,
   .about-page .cta-secondary {
     width: 170px;
+  }
+}
+
+/* how it  works page */
+
+.how-it-works-page {
+  --how-orange: #ed5b16;
+  --how-green: #176b38;
+  --how-green-dark: #105b2d;
+  --how-text: #27231f;
+  --how-muted: #5a4139;
+
+  min-height: 100vh;
+  padding: 0 24px 80px;
+
+  background-color: #fffdf9;
+  background-image:
+    linear-gradient(rgba(235, 235, 235, 0.42) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(235, 235, 235, 0.42) 1px, transparent 1px);
+  background-size: 60px 60px;
+
+  overflow: hidden;
+}
+
+.how-it-works-page .how-hero {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 0 38px;
+  text-align: center;
+}
+
+.how-it-works-page .how-hero h1 {
+  margin: 0;
+  color: var(--how-orange);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.how-it-works-page .how-hero p {
+  max-width: 470px;
+  margin: 12px auto 0;
+  color: var(--how-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.how-it-works-page .how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto 36px;
+}
+
+.how-it-works-page .how-step-card {
+  min-height: 142px;
+  padding: 15px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.025);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.how-it-works-page .how-step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.how-it-works-page .how-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  margin-bottom: 11px;
+  border-radius: 50%;
+  background: var(--how-orange);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.how-it-works-page .how-step-card h2 {
+  margin: 0 0 6px;
+  color: var(--how-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.how-it-works-page .how-step-card p {
+  margin: 0;
+  color: var(--how-muted);
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+/* =========================================
+   ESCROW
+========================================= */
+
+.how-it-works-page .how-escrow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  min-height: 280px;
+  margin: 0 auto;
+  padding: 42px 40px;
+  border-radius: 16px;
+  background: #176b38;
+  overflow: hidden;
+}
+
+.how-it-works-page .how-escrow::before,
+.how-it-works-page .how-escrow::after {
+  display: none;
+}
+
+/* =========================================
+   ESCROW CONTENT
+========================================= */
+
+.how-it-works-page .how-escrow-content {
+  position: relative;
+  z-index: 3;
+  width: 50%;
+  max-width: 440px;
+}
+
+.how-it-works-page .how-protected-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 17px;
+  padding: 7px 12px;
+  border: 1px solid rgba(183, 232, 197, 0.18);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(91, 192, 120, 0.26),
+    rgba(91, 192, 120, 0.1)
+  );
+  color: #b7e8c5;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.how-it-works-page .how-protected-badge svg {
+  flex-shrink: 0;
+}
+
+.how-it-works-page .how-escrow-content h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.how-it-works-page .how-escrow-content p {
+  max-width: 400px;
+  margin: 0;
+  color: #c4e0cc;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.how-it-works-page .how-guarantees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.how-it-works-page .how-guarantees > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 91, 45, 0.95),
+    rgba(10, 70, 34, 0.9)
+  );
+  color: #fff;
+  font-size: 10px;
+}
+
+.how-it-works-page .how-guarantees svg {
+  flex-shrink: 0;
+}
+
+.how-it-works-page .how-person {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+}
+
+.how-it-works-page .how-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+.how-it-works-page .how-person::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    #176b38 0%,
+    rgba(23, 107, 56, 0.9) 15%,
+    rgba(23, 107, 56, 0.55) 30%,
+    rgba(23, 107, 56, 0.2) 45%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.how-it-works-page .how-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.how-it-works-page .how-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 166px;
+  padding: 13px 20px;
+  border-radius: 8px;
+  background: var(--how-orange);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.how-it-works-page .how-cta a:hover {
+  background: #d94f10;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(237, 91, 22, 0.22);
+}
+
+@media (max-width: 900px) {
+  .how-it-works-page .how-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how-it-works-page .how-escrow {
+    min-height: 320px;
+    background: #176b38;
+  }
+
+  .how-it-works-page .how-escrow-content {
+    width: 58%;
+  }
+
+  .how-it-works-page .how-person {
+    width: 52%;
+  }
+}
+
+@media (max-width: 600px) {
+  .how-it-works-page {
+    padding: 0 16px 50px;
+    background-size: 40px 40px;
+  }
+
+  .how-it-works-page .how-hero {
+    padding-bottom: 28px;
+  }
+
+  .how-it-works-page .how-hero h1 {
+    font-size: 30px;
+    letter-spacing: -0.8px;
+  }
+
+  .how-it-works-page .how-hero p {
+    font-size: 12px;
+  }
+
+  /* Steps */
+
+  .how-it-works-page .how-steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .how-it-works-page .how-step-card {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .how-it-works-page .how-step-card h2 {
+    font-size: 14px;
+  }
+
+  .how-it-works-page .how-step-card p {
+    font-size: 12px;
+  }
+
+  /* Escrow */
+
+  .how-it-works-page .how-escrow {
+    display: block;
+    min-height: 530px;
+    padding: 28px 22px;
+    border-radius: 16px;
+    background: #176b38;
+  }
+
+  .how-it-works-page .how-escrow::before {
+    display: none;
+  }
+
+  .how-it-works-page .how-escrow-content {
+    width: 100%;
+    max-width: none;
+  }
+
+  .how-it-works-page .how-escrow-content h2 {
+    font-size: 24px;
+  }
+
+  .how-it-works-page .how-escrow-content p {
+    font-size: 12px;
+  }
+
+  /* Guarantee buttons */
+
+  .how-it-works-page .how-guarantees {
+    gap: 8px;
+  }
+
+  .how-it-works-page .how-guarantees > span {
+    font-size: 9px;
+  }
+
+  /* Person image */
+
+  .how-it-works-page .how-person {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55%;
+  }
+
+  .how-it-works-page .how-person::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      #176b38 0%,
+      rgba(23, 107, 56, 0.9) 15%,
+      rgba(23, 107, 56, 0.55) 30%,
+      rgba(23, 107, 56, 0.2) 45%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  /* CTA */
+
+  .how-it-works-page .how-cta {
+    margin-top: 28px;
   }
 }
