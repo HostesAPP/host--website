@@ -18,7 +18,9 @@ export const metadata: Metadata = {
   description: "Your No 1 staffing Platform",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html
       lang="en"
