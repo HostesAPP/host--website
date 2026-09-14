@@ -157,7 +157,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="sub-hero bg-[#fafafa] py-20 md:py-10">
+        <section className="sub-hero py-20 md:py-10">
           <h2 className="font-bold text-[20px] md:text-[48px] leading-10 tracking-[-0.32px] text-center mb-20">
             Nigeria's finest <span className="text-primary">Event Staff</span>,
             all in one place.
