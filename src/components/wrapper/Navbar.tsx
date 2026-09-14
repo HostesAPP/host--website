@@ -70,7 +70,7 @@ export default function Navbar() {
                     key={id}
                     href={href}
                   >
-                    <span className="text-[14px]">{name}</span>
+                    <span className="text-[14px] dark:text-black">{name}</span>
                   </Link>
                 ))}
               </div>
@@ -81,7 +81,7 @@ export default function Navbar() {
               <Link
                 key={id}
                 href={href}
-                className={`font-medium text-[14px] leading-5 tracking-[0.28px] ${pathname === href ? "text-primary border-b border-primary" : ""}`}
+                className={`font-medium text-[14px] leading-5 tracking-[0.28px] dark:text-black ${pathname === href ? "text-primary border-b border-primary" : ""}`}
               >
                 {name}
               </Link>

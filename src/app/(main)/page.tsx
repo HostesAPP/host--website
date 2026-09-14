@@ -90,19 +90,19 @@ export default function Home() {
       <div className="container mx-auto px-6">
         <GridBackground className="absolute left-0 -top-45 -z-10 h-screen w-full" />
         <section>
-          <div className="hero-container relative flex flex-col justify-center items-center md:h-[85vh]">
+          <div className="hero-container relative flex flex-col md:justify-center items-center h-[90vh]">
             <div className="hero-content flex flex-col justify-center items-center">
-              <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10">
+              <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 dark:text-black">
                 Book a{" "}
                 <span className="text-primary">{keyWords[currentIndex]}</span>{" "}
                 Today
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
+              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block dark:text-black">
                 Hosté solves the challenge of helping brands and clubs quickly
                 find, book and reliably manage verified event staff without the
                 stress and uncertainty of traditional staffing.
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden">
+              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden dark:text-black">
                 Hosté is a platform where Brands and Event Planners can book
                 Event Staffs.
               </p>
@@ -150,7 +150,7 @@ export default function Home() {
                   height={35}
                   width={92}
                 />
-                <p className="font-semibold text-[8px] md:text-[14px] leading-6.5">
+                <p className="font-semibold text-[8px] md:text-[14px] leading-6.5 dark:text-black">
                   10,000+ Active Hostés working across Nigeria
                 </p>
               </div>
@@ -217,7 +217,7 @@ export default function Home() {
                   key={title}
                 >
                   <h3
-                    className="h-12 w-12 flex items-center justify-center rounded-full"
+                    className="h-12 w-12 flex items-center justify-center rounded-full dark:text-black"
                     style={{
                       backgroundColor: hexToRgba(bgColor, opacity / 100),
                     }}
@@ -227,7 +227,7 @@ export default function Home() {
                   <h4 className="capitalize font-bold text-[20px] leading-8 text-[#1C1B1B]">
                     {title}
                   </h4>
-                  <p className="font-normal text-[16px] leading-7.5">
+                  <p className="font-normal text-[16px] leading-7.5 dark:text-black">
                     {description}
                   </p>
                 </div>
@@ -267,7 +267,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-[#FAFAFA] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 md:mb-8">
+        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-[#FAFAFA] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
           <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
             Join our journey of professional excellence.
           </h2>

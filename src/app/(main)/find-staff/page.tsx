@@ -16,12 +16,12 @@ export default function FindStaff() {
             />
           </div>
           <div className="desc">
-            <p className="font-secondary font-extrabold text-center md:text-left mx-auto md:mx-0 text-[20px] md:text-[48px] max-w-56.25 md:max-w-134.75">
+            <p className="font-secondary font-extrabold text-center md:text-left mx-auto md:mx-0 text-[20px] md:text-[48px] dark:text-black max-w-56.25 md:max-w-134.75">
               Get our Finest <span className="text-primary">Hosté</span> on{" "}
               <span className="text-primary">our App</span>
             </p>
             <div className="links mt-10">
-              <p className="font-extrabold text-[16px] font-secondary mb-3 text-center md:text-left">
+              <p className="font-extrabold text-[16px] font-secondary mb-3 text-center md:text-left dark:text-black">
                 Download and Start booking now
               </p>
               <div className="download-links flex space-x-5">
