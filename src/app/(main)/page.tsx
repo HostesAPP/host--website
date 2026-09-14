@@ -6,6 +6,7 @@ import { MdShield, MdGroups2 } from "react-icons/md";
 import GridBackground from "@/components/GridBackground";
 import { useRouter } from "next/navigation";
 import ScrollText from "@/components/ScrollText";
+import { useEffect, useState } from "react";
 
 const CarouselItems = [
   {
@@ -61,11 +62,29 @@ const Offerings = [
   },
 ];
 
+const keyWords = [
+  "Hostess",
+  "Pole Dancer",
+  "Bartender",
+  "Party starter",
+  "Private Chef",
+];
+
 const text =
   "Hosté is a technology platform that connects brands, hotels, clubs, and event planners with verified, professional event staff ushers, bartenders, hosts, performers, and more on demand";
 
 export default function Home() {
   const router = useRouter();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((currentItem) => {
+        return (currentItem + 1) % keyWords.length;
+      });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="relative">
       <div className="container mx-auto px-6">
@@ -74,7 +93,9 @@ export default function Home() {
           <div className="hero-container relative flex flex-col justify-center items-center md:h-[85vh]">
             <div className="hero-content flex flex-col justify-center items-center">
               <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10">
-                Book a <span className="text-primary">Hostess</span> Today
+                Book a{" "}
+                <span className="text-primary">{keyWords[currentIndex]}</span>{" "}
+                Today
               </p>
               <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
                 Hosté solves the challenge of helping brands and clubs quickly
@@ -171,29 +192,6 @@ export default function Home() {
             className="font-bold text-[20px] md:text-[58px] md:leading-15 tracking-[0.7px]"
           />
         </section>
-        <section className="rate md:py-20 flex flex-col md:flex-row justify-between font-primary space-y-20">
-          <div className="section-description lg:max-w-125 flex flex-col md:items-start items-center space-y-8">
-            <p className="font-semibold text-[24px] md:text-[32px] leading-10 tracking-[-0.32px]">
-              Your skills. Your rate.{" "}
-              <span className="text-primary">Paid fast.</span>
-            </p>
-            <p className="font-normal text-[12px] md:text-[16px] leading-6 tracking-normal text-center md:text-justify">
-              Join the elite network of hospitality professionals. Build a
-              stunning professional profile, enjoy transparent earnings, and
-              rely on guaranteed payments through our Green Escrow system.
-            </p>
-            <Button text="Become a Hosté" className="bg-[#ef5a22] text-white" />
-          </div>
-          <div className="image relative h-158.5 md:w-162.5">
-            <Image
-              src={"/images/rate-image.png"}
-              alt="An Hosté worker"
-              fill
-              sizes="(max-width: 768px) 350px, 650px"
-              className="object-cover rounded-[20px]"
-            />
-          </div>
-        </section>
         <section className="offers font-primary pt-20 md:pt-0">
           <h2 className="font-bold text-[32px] leading-8 text-primary text-center font-secondary">
             The Marketplace for Excellence
@@ -237,6 +235,38 @@ export default function Home() {
             })}
           </div>
         </section>
+        <section className="rate py-20 justify-between font-primary space-y-20">
+          <div className="section-description flex flex-col items-center justify-center space-y-8">
+            <p className="font-semibold text-[24px] md:text-[32px] leading-10 tracking-[-0.32px]">
+              Your skills. Your rate.{" "}
+              <span className="text-primary">Paid fast.</span>
+            </p>
+            <p className="font-normal text-[16px] leading-6 tracking-normal lg:max-w-203.25 text-center text-[#5A4139]">
+              Join the elite network of hospitality professionals. Build a
+              stunning professional profile, enjoy transparent earnings, and
+              rely on guaranteed payments through our Green Escrow system.
+            </p>
+            <Button text="Become a Hosté" className="bg-[#ef5a22] text-white" />
+          </div>
+          <div className="image relative flex items-center justify-center">
+            {/* <Image
+              src={"/images/rate-image.png"}
+              alt="An Hosté worker"
+              fill
+              sizes="(max-width: 768px) 350px, 650px"
+              className="object-cover rounded-[20px]"
+            /> */}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              src="/images/hero-video.MP4"
+              className="rounded-[20px]"
+            />
+          </div>
+        </section>
+
         <section className="prefooter bg-linear-to-b from-[#EF5A22] to-[#FAFAFA] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 md:mb-8">
           <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
             Join our journey of professional excellence.
