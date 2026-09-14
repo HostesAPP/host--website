@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LuShield, LuShieldCheck, LuLockKeyhole } from "react-icons/lu";
+import { LuShield, LuLockKeyhole } from "react-icons/lu";
+import { HiBadgeCheck } from "react-icons/hi";
 
 const steps = [
   {
@@ -70,7 +71,7 @@ export default function HowItWorksPage() {
 
           <div className="how-guarantees">
             <span>
-              <LuShieldCheck size={16} />
+              <HiBadgeCheck size={16} />
               <span>Identity Verification</span>
             </span>
 
