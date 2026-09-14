@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaShieldAlt } from "react-icons/fa";
-import { MdVerifiedUser } from "react-icons/md";
-import { FaShieldHalved } from "react-icons/fa6";
+import { LuShield, LuShieldCheck, LuLockKeyhole } from "react-icons/lu";
 
 const steps = [
   {
     number: "1",
     title: "Discover & Filter",
     description:
-      "Browse vetted professionals with transparent rates and read reviews.",
+      "Browse vetted professionals with transparent rates and real reviews.",
   },
   {
     number: "2",
@@ -34,17 +32,15 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <main className="how-it-works-page">
-      {/* Hero / Introduction */}
       <section className="how-hero">
         <h1>Seamless staffing from discovery to payment.</h1>
 
         <p>
-          The Hosté marketplace eliminates friction, ensuring you focus on
-          your event while we handle the logistics.
+          The Hosté marketplace eliminates friction, ensuring you focus on your
+          event while we handle the logistics.
         </p>
       </section>
 
-      {/* Steps */}
       <section className="how-steps">
         {steps.map((step) => (
           <article className="how-step-card" key={step.number}>
@@ -57,11 +53,10 @@ export default function HowItWorksPage() {
         ))}
       </section>
 
-      {/* Green Escrow Guarantee */}
       <section className="how-escrow">
         <div className="how-escrow-content">
           <span className="how-protected-badge">
-            <FaShieldAlt size={15} />
+            <LuShield size={16} />
             <span>Secure &amp; Protected</span>
           </span>
 
@@ -75,18 +70,17 @@ export default function HowItWorksPage() {
 
           <div className="how-guarantees">
             <span>
-              <MdVerifiedUser size={15} />
+              <LuShieldCheck size={16} />
               <span>Identity Verification</span>
             </span>
 
             <span>
-              <FaShieldHalved size={15} />
+              <LuLockKeyhole size={16} />
               <span>Secured by Paystack</span>
             </span>
           </div>
         </div>
 
-        {/* Person Image */}
         <div className="how-person">
           <Image
             src="/images/how.png"
@@ -98,7 +92,6 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* Call To Action */}
       <div className="how-cta">
         <Link href="/find-staff">Start Your First Booking</Link>
       </div>
