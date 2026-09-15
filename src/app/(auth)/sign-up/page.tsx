@@ -14,12 +14,15 @@ export default function SignUp() {
       <GridBackground className="absolute inset-0 -z-10 h-screen w-full" />
       <main className="font-secondary relative">
         <button
-          className="go-back absolute top-2 left-2 md:top-55 md:left-135 flex h-10 w-10 items-center justify-center border border-gray-200 shadow-sm cursor-pointer"
+          className="go-back fixed left-4 top-4 z-20 flex h-11 items-center gap-2 rounded-full border border-(--border-subtle) bg-(--surface)/90 px-3 text-primary shadow-[0_12px_30px_rgba(28,27,27,0.08)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_18px_40px_rgba(239,90,34,0.14)] md:left-8 md:top-8 md:px-4"
           type="button"
           onClick={() => router.back()}
           aria-label="Go back"
         >
-          <FaArrowLeftLong color="#EF5A22" />
+          <FaArrowLeftLong aria-hidden="true" />
+          <span className="hidden text-sm font-bold leading-none sm:inline">
+            Back
+          </span>
         </button>
         <div className="container mx-auto px-6">
           <div className="content flex flex-col space-y-4 items-center justify-center h-screen">
