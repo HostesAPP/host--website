@@ -6,7 +6,7 @@ import { MdShield, MdGroups2 } from "react-icons/md";
 import GridBackground from "@/components/GridBackground";
 import { useRouter } from "next/navigation";
 import ScrollText from "@/components/ScrollText";
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 
 const CarouselItems = [
   {
@@ -90,26 +90,26 @@ export default function Home() {
       <GridBackground className="absolute left-0 -top-30 md:-top-34 -z-10 h-screen w-full" />
       <div className="container mx-auto px-6">
         <section>
-          <div className="hero-container relative flex flex-col justify-center items-center min-h-[87vh]">
-            <div className="hero-content flex flex-col justify-center items-center">
-              <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 dark:text-black">
+          <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-center overflow-hidden md:min-h-[calc(100vh-8.5rem)]">
+            <div className="hero-content flex flex-col items-center justify-center px-6">
+              <p className="relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 dark:text-black">
                 Book a{" "}
                 <span className="text-primary">{keyWords[currentIndex]}</span>{" "}
                 Today
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block dark:text-black">
+              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block dark:text-black">
                 Hosté solves the challenge of helping brands and clubs quickly
                 find, book and reliably manage verified event staff without the
                 stress and uncertainty of traditional staffing.
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden dark:text-black">
+              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden dark:text-black">
                 Hosté is a platform where Brands and Event Planners can book
                 Event Staffs.
               </p>
-              <div className="book-now mt-6">
+              <div className="book-now relative z-20 mt-6">
                 <Button
-                  text="Book Now"
-                  onClick={() => router.push("/")}
+                  text="Download Now"
+                  onClick={() => router.push("/find-staff")}
                   className="bg-[#ef5a22] text-white"
                 />
               </div>
@@ -123,7 +123,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute left-0 top-0 hidden md:block h-[min(800px,82vh)] w-[min(800px,42vw)]">
+                <div className="left-image absolute -left-4 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
                   <Image
                     src={"/images/salewa.png"}
                     fill
@@ -133,7 +133,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="right-image absolute right-0 top-0 hidden md:block h-[min(800px,82vh)] w-[min(800px,42vw)]">
+                <div className="right-image absolute -right-6 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
                   <Image
                     src={"/images/erica.png"}
                     fill
@@ -143,15 +143,16 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-x-0 bottom-[10vh] z-10 hidden h-80 bg-linear-to-b from-transparent via-[#FAFAFA]/95 to-[#FAFAFA] md:block" />
-              <div className="user-stats relative z-20 flex gap-5 items-center md:mt-75">
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[clamp(22rem,62vh,44rem)] bg-linear-to-b from-transparent via-[#FAFAFA]/95 to-[#FAFAFA] md:block" />
+              <div className="user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] -translate-x-1/2 items-center gap-2 md:gap-5">
                 <Image
                   src={"/images/group-image.png"}
                   alt="user images"
                   height={35}
                   width={92}
+                  className="h-auto w-20.5 shrink-0 md:w-23"
                 />
-                <p className="font-semibold text-[8px] md:text-[14px] leading-6.5 dark:text-black">
+                <p className="whitespace-nowrap font-semibold text-[7px] leading-6.5 min-[360px]:text-[8px] md:text-[14px] dark:text-black">
                   10,000+ Active Hostés working across Nigeria
                 </p>
               </div>
@@ -214,8 +215,13 @@ export default function Home() {
               };
               return (
                 <div
-                  className="offer group bg-[#ffffff] p-16 rounded-[30px] flex flex-col gap-4 border border-transparent shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
+                  className="offer group bg-[#ffffff] p-16 rounded-[30px] flex flex-col gap-4 border border-transparent shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
                   key={title}
+                  style={
+                    {
+                      "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
+                    } as CSSProperties
+                  }
                 >
                   <h3
                     className="h-12 w-12 flex items-center justify-center rounded-full dark:text-black transition-all duration-300 group-hover:scale-110 group-hover:text-primary"
@@ -225,10 +231,10 @@ export default function Home() {
                   >
                     {icon}
                   </h3>
-                  <h4 className="capitalize font-bold text-[20px] leading-8 text-[#1C1B1B] transition-colors duration-300 group-hover:text-primary">
+                  <h4 className="capitalize font-bold text-[20px] leading-8 text-[#1C1B1B] transition-colors duration-300 group-hover:text-white">
                     {title}
                   </h4>
-                  <p className="font-normal text-[16px] leading-7.5 dark:text-black">
+                  <p className="font-normal text-[16px] leading-7.5 text-[#1C1B1B] transition-colors duration-300 group-hover:text-white dark:text-black">
                     {description}
                   </p>
                 </div>
@@ -247,7 +253,11 @@ export default function Home() {
               stunning professional profile, enjoy transparent earnings, and
               rely on guaranteed payments through our Green Escrow system.
             </p>
-            <Button text="Become a Hosté" className="bg-[#ef5a22] text-white" />
+            <Button
+              text="Download Now"
+              onClick={() => router.push("/find-staff")}
+              className="bg-[#ef5a22] text-white"
+            />
           </div>
           <div className="image relative flex items-center justify-center">
             {/* <Image
@@ -278,8 +288,9 @@ export default function Home() {
               className="bg-white text-primary w-59.75"
             />
             <Button
-              text="Become a Host"
+              text="Download Now"
               className="bg-transparent border border-white text-white w-59.75"
+              onClick={() => router.push("/find-staff")}
             />
           </div>
         </section>
