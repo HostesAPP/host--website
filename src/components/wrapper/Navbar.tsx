@@ -18,13 +18,12 @@ const navlinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const mobilestyling = `${isOpen ? "translate-x-0" : "-translate-x-full"}`;
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  const mobileStyling = isOpen ? "translate-x-0" : "-translate-x-full";
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="bg-transparent z-100 sticky top-0">
+    <nav className="bg-transparent z-100 sticky top-0 px-6 md:px-8">
       <div className="nav-container mt-5 z-100 py-4 px-6 flex md:justify-center w-full md:w-fit mx-auto bg-surface rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15),inset_0_-4px_20px_-12px_rgba(0,0,0,0.15)]">
         <div className="flex items-center justify-between md:space-x-18 w-full">
           <div className="hamburger-menu md:hidden">
@@ -46,16 +45,17 @@ export default function Navbar() {
               />
             </Link>
           </div>
+
           <div
             onClick={closeMenu}
-            className={`fixed inset-0 z-40 bg-black/40 transition-opacity duration-300 md:hidden ${
+            className={`fixed inset-0 z-40 bg-background/40 transition-opacity duration-300 md:hidden ${
               isOpen
                 ? "pointer-events-auto opacity-100"
                 : "pointer-events-none opacity-0"
             }`}
           />
           <div
-            className={`${mobilestyling} mobile-nav bg-surface z-50 absolute md:hidden w-[75%] h-screen top-0 left-0 py-20 px-8 shadow-2xl transition-all duration-1000`}
+            className={`${mobileStyling} mobile-nav bg-surface z-50 absolute md:hidden w-[75%] h-screen top-0 left-0 py-20 px-8 shadow-2xl transition-all duration-1000`}
           >
             <div className="mobile-nav-container">
               <div className="top-heading flex justify-between items-center mb-10">
@@ -85,6 +85,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
+
           <div className="navlinks font-primary md:flex items-center gap-8 hidden">
             {navlinks.slice(0, 3).map(({ name, href, id }) => (
               <Link
@@ -98,7 +99,7 @@ export default function Navbar() {
           </div>
           <div className="get-started hidden md:block">
             <Link
-              href={"/sign-up"}
+              href="/sign-up"
               className="bg-primary flex items-center justify-center gap-2 text-white h-[42.66px] px-10.5 rounded-4xl"
             >
               <span>Get Started</span> <FaArrowRightLong />
