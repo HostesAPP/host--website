@@ -6,7 +6,7 @@ import { MdShield, MdGroups2 } from "react-icons/md";
 import GridBackground from "@/components/GridBackground";
 import { useRouter } from "next/navigation";
 import ScrollText from "@/components/ScrollText";
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 
 const CarouselItems = [
   {
@@ -92,17 +92,17 @@ export default function Home() {
         <section>
           <div className="hero-container relative flex flex-col md:justify-center items-center h-[90vh]">
             <div className="hero-content flex flex-col justify-center items-center">
-              <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 dark:text-black">
+              <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10">
                 Book a{" "}
                 <span className="text-primary">{keyWords[currentIndex]}</span>{" "}
                 Today
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block dark:text-black">
+              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
                 Hosté solves the challenge of helping brands and clubs quickly
                 find, book and reliably manage verified event staff without the
                 stress and uncertainty of traditional staffing.
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden dark:text-black">
+              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden">
                 Hosté is a platform where Brands and Event Planners can book
                 Event Staffs.
               </p>
@@ -150,7 +150,7 @@ export default function Home() {
                   height={35}
                   width={92}
                 />
-                <p className="font-semibold text-[8px] md:text-[14px] leading-6.5 dark:text-black">
+                <p className="font-semibold text-[8px] md:text-[14px] leading-6.5">
                   10,000+ Active Hostés working across Nigeria
                 </p>
               </div>
@@ -159,8 +159,8 @@ export default function Home() {
         </section>
         <section className="sub-hero py-20 md:py-10">
           <h2 className="font-bold text-[20px] md:text-[48px] leading-10 tracking-[-0.32px] text-center mb-20">
-            Nigeria's finest <span className="text-primary">Event Staff</span>,
-            all in one place.
+            Nigeria&apos;s finest{" "}
+            <span className="text-primary">Event Staff</span>, all in one place.
           </h2>
           {/* Here is a Carousel */}
           {/* <div className="section-details flex items-center justify-center mt-15">
@@ -213,21 +213,26 @@ export default function Home() {
               };
               return (
                 <div
-                  className="offer bg-[#ffffff] p-16 rounded-[30px] flex flex-col gap-4"
+                  className="offer group bg-card p-16 rounded-[30px] flex flex-col gap-4 border border-(--border-subtle) transition-colors duration-300 hover:bg-(--offer-hover-bg)"
                   key={title}
+                  style={
+                    {
+                      "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
+                    } as CSSProperties
+                  }
                 >
                   <h3
-                    className="h-12 w-12 flex items-center justify-center rounded-full dark:text-black"
+                    className="h-12 w-12 flex items-center justify-center rounded-full transition-colors duration-300 group-hover:text-white"
                     style={{
                       backgroundColor: hexToRgba(bgColor, opacity / 100),
                     }}
                   >
                     {icon}
                   </h3>
-                  <h4 className="capitalize font-bold text-[20px] leading-8 text-[#1C1B1B]">
+                  <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
                     {title}
                   </h4>
-                  <p className="font-normal text-[16px] leading-7.5 dark:text-black">
+                  <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
                     {description}
                   </p>
                 </div>
@@ -241,7 +246,7 @@ export default function Home() {
               Your skills. Your rate.{" "}
               <span className="text-primary">Paid fast.</span>
             </p>
-            <p className="font-normal text-[16px] leading-6 tracking-normal lg:max-w-203.25 text-center text-[#5A4139]">
+            <p className="font-normal text-[16px] leading-6 tracking-normal lg:max-w-203.25 text-center text-muted-foreground">
               Join the elite network of hospitality professionals. Build a
               stunning professional profile, enjoy transparent earnings, and
               rely on guaranteed payments through our Green Escrow system.
@@ -267,7 +272,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-[#FAFAFA] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
+        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-(--prefooter-end) py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
           <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
             Join our journey of professional excellence.
           </h2>

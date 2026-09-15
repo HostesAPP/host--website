@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-transparent z-100 sticky top-0">
-      <div className="nav-container mt-5 z-100 py-4 px-6 flex md:justify-center w-full md:w-fit mx-auto bg-white rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15),inset_0_-4px_20px_-12px_rgba(0,0,0,0.15)]">
+      <div className="nav-container mt-5 z-100 py-4 px-6 flex md:justify-center w-full md:w-fit mx-auto bg-surface rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15),inset_0_-4px_20px_-12px_rgba(0,0,0,0.15)]">
         <div className="flex items-center justify-between md:space-x-18 w-full">
           <div className="hamburger-menu md:hidden">
             <button className="cursor-pointer" onClick={() => setIsOpen(true)}>
@@ -44,7 +44,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div
-            className={`${mobilestyling} mobile-nav bg-white z-50 absolute md:hidden bg-neutral w-[75%] h-screen top-0 left-0 py-20 px-8 shadow-2xl transition-all duration-1000`}
+            className={`${mobilestyling} mobile-nav bg-surface z-50 absolute md:hidden w-[75%] h-screen top-0 left-0 py-20 px-8 shadow-2xl transition-all duration-1000`}
           >
             <div className="mobile-nav-container">
               <div className="top-heading flex justify-between items-center mb-10">
@@ -70,7 +70,7 @@ export default function Navbar() {
                     key={id}
                     href={href}
                   >
-                    <span className="text-[14px] dark:text-black">{name}</span>
+                    <span className="text-[14px]">{name}</span>
                   </Link>
                 ))}
               </div>
@@ -81,7 +81,7 @@ export default function Navbar() {
               <Link
                 key={id}
                 href={href}
-                className={`font-medium text-[14px] leading-5 tracking-[0.28px] dark:text-black ${pathname === href ? "text-primary border-b border-primary" : ""}`}
+                className={`font-medium text-[14px] leading-5 tracking-[0.28px] ${pathname === href ? "text-primary border-b border-primary" : ""}`}
               >
                 {name}
               </Link>
