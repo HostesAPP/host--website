@@ -11,13 +11,13 @@ const GridBackground = ({ children, className = "" }: GridBackgroundProps) => {
 };
 
 const StyledGrid = styled.section`
-  background-color: #fafafa;
+  background-color: var(--grid-background);
   height: 100vh;
   z-index: -4;
 
   background-image:
-    linear-gradient(to right, #e5e7eb 1px, transparent 1px),
-    linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
 
   background-size: 200px 200px;
 `;

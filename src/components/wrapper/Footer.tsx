@@ -26,7 +26,7 @@ const footerLinks = {
 export default function Footer() {
   const pathname = usePathname();
   return (
-    <footer className="bg-[#fafafa] py-10 dark:text-black">
+    <footer className="bg-background py-10">
       <div className="container mx-auto px-6">
         <div className="footer-container flex flex-col gap-5 md:grid md:grid-cols-5">
           <div className="footer-logo md:col-span-2 order-last md:order-first">

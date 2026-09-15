@@ -7,22 +7,25 @@ import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
-import Button from "../button";
 
 const navlinks = [
   { id: 1, name: "Find Staff", href: "/find-staff" },
   { id: 2, name: "How it Works", href: "/how-it-works" },
   { id: 3, name: "About Us", href: "/about-us" },
+  { id: 4, name: "Get Started", href: "/find-staff" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const mobilestyling = `${isOpen ? "translate-x-0" : "-translate-x-full"}`;
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   return (
     <nav className="bg-transparent z-100 sticky top-0">
-      <div className="nav-container mt-5 z-100 py-4 px-6 flex md:justify-center w-full md:w-fit mx-auto bg-white rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15),inset_0_-4px_20px_-12px_rgba(0,0,0,0.15)]">
+      <div className="nav-container mt-5 z-100 py-4 px-6 flex md:justify-center w-full md:w-fit mx-auto bg-surface rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15),inset_0_-4px_20px_-12px_rgba(0,0,0,0.15)]">
         <div className="flex items-center justify-between md:space-x-18 w-full">
           <div className="hamburger-menu md:hidden">
             <button className="cursor-pointer" onClick={() => setIsOpen(true)}>
@@ -44,7 +47,15 @@ export default function Navbar() {
             </Link>
           </div>
           <div
-            className={`${mobilestyling} mobile-nav bg-white z-50 absolute md:hidden bg-neutral w-[75%] h-screen top-0 left-0 py-20 px-8 shadow-2xl transition-all duration-1000`}
+            onClick={closeMenu}
+            className={`fixed inset-0 z-40 bg-black/40 transition-opacity duration-300 md:hidden ${
+              isOpen
+                ? "pointer-events-auto opacity-100"
+                : "pointer-events-none opacity-0"
+            }`}
+          />
+          <div
+            className={`${mobilestyling} mobile-nav bg-surface z-50 absolute md:hidden w-[75%] h-screen top-0 left-0 py-20 px-8 shadow-2xl transition-all duration-1000`}
           >
             <div className="mobile-nav-container">
               <div className="top-heading flex justify-between items-center mb-10">
@@ -56,10 +67,7 @@ export default function Navbar() {
                     className="object-contain"
                   />
                 </Link>
-                <button
-                  className="cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
+                <button className="cursor-pointer" onClick={closeMenu}>
                   <IoCloseSharp />
                 </button>
               </div>
@@ -69,19 +77,20 @@ export default function Navbar() {
                     className="link-content flex gap-3 items-center font-extralight w-fit"
                     key={id}
                     href={href}
+                    onClick={closeMenu}
                   >
-                    <span className="text-[14px] dark:text-black">{name}</span>
+                    <span className="text-[14px]">{name}</span>
                   </Link>
                 ))}
               </div>
             </div>
           </div>
           <div className="navlinks font-primary md:flex items-center gap-8 hidden">
-            {navlinks.map(({ name, href, id }) => (
+            {navlinks.slice(0, 3).map(({ name, href, id }) => (
               <Link
                 key={id}
                 href={href}
-                className={`font-medium text-[14px] leading-5 tracking-[0.28px] dark:text-black ${pathname === href ? "text-primary border-b border-primary" : ""}`}
+                className={`font-medium text-[14px] leading-5 tracking-[0.28px] ${pathname === href ? "text-primary border-b border-primary" : ""}`}
               >
                 {name}
               </Link>

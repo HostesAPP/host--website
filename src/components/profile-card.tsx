@@ -21,7 +21,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
   const lastName = nameArray[1];
   const initial = lastName[0].toUpperCase();
   return (
-    <article className="card bg-white min-w-80 min-h-69 rounded-b-3xl">
+    <article className="card bg-card min-w-80 min-h-69 rounded-b-3xl">
       <div className="image-container relative h-48 w-full">
         <Image
           src={profile.img}
@@ -49,7 +49,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             <h1 className="text-[20px] font-normal leading-7 tracking-normal">
               {`${firstName} ${initial}`}.
             </h1>
-            <p className="font-normal text-[16px] text-[#5A4139] leading-7">
+            <p className="font-normal text-[16px] text-[var(--muted-foreground)] leading-7">
               {profile.hosteRole}
             </p>
           </div>
@@ -70,12 +70,10 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
               height={13}
               width={13}
             />
-            <span className="text-[14px] font-medium text-[#1C1B1B]">
-              {profile.rating}
-            </span>
+            <span className="text-[14px] font-medium">{profile.rating}</span>
           </h2>
           <div className="divider w-1 h-1 bg-[#DCD9D9]"></div>
-          <div className="booking text-[#5A4139] text-[14px] font-medium tracking-[0.28px]">
+          <div className="booking text-[var(--muted-foreground)] text-[14px] font-medium tracking-[0.28px]">
             {profile.bookings} Bookings
           </div>
         </div>
@@ -83,7 +81,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
           {profile.skills.map((skill) => (
             <p
               key={skill}
-              className="bg-[#F0EDED] py-1 px-2 rounded-md capitalize"
+              className="bg-[var(--surface-soft)] py-1 px-2 rounded-md capitalize"
             >
               {skill}
             </p>
@@ -91,7 +89,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         </div>
         <Link
           href={""}
-          className="w-full border border-[#E5E2E1] rounded-lg text-[14px] font-medium text-center p-2"
+          className="w-full border border-[var(--border-subtle)] rounded-lg text-[14px] font-medium text-center p-2"
         >
           View Profile
         </Link>
