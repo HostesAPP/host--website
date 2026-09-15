@@ -87,10 +87,10 @@ export default function Home() {
   }, []);
   return (
     <div className="relative">
+      <GridBackground className="absolute left-0 -top-30 md:-top-34 -z-10 h-screen w-full" />
       <div className="container mx-auto px-6">
-        <GridBackground className="absolute left-0 -top-45 -z-10 h-screen w-full" />
         <section>
-          <div className="hero-container relative flex flex-col md:justify-center items-center h-[90vh]">
+          <div className="hero-container relative flex flex-col justify-center items-center min-h-[87vh]">
             <div className="hero-content flex flex-col justify-center items-center">
               <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 dark:text-black">
                 Book a{" "}
@@ -123,27 +123,28 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute left-0 top-0 hidden md:block">
+                <div className="left-image absolute left-0 top-0 hidden md:block h-[min(800px,82vh)] w-[min(800px,42vw)]">
                   <Image
                     src={"/images/salewa.png"}
-                    height={800}
-                    width={800}
+                    fill
                     sizes=""
                     alt="Hosté Worker"
+                    className="object-contain object-top"
                   />
                 </div>
 
-                <div className="right-image absolute right-0 top-0 hidden md:block">
+                <div className="right-image absolute right-0 top-0 hidden md:block h-[min(800px,82vh)] w-[min(800px,42vw)]">
                   <Image
                     src={"/images/erica.png"}
-                    height={800}
-                    width={800}
+                    fill
                     alt="Bimpe Hosté worker"
-                    // className="object-contain"
+                    sizes=""
+                    className="object-contain object-top"
                   />
                 </div>
               </div>
-              <div className="user-stats flex gap-5 items-center md:mt-75">
+              <div className="pointer-events-none absolute inset-x-0 bottom-[10vh] z-10 hidden h-80 bg-linear-to-b from-transparent via-[#FAFAFA]/95 to-[#FAFAFA] md:block" />
+              <div className="user-stats relative z-20 flex gap-5 items-center md:mt-75">
                 <Image
                   src={"/images/group-image.png"}
                   alt="user images"
@@ -157,10 +158,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="sub-hero py-20 md:py-10">
+        <section className="sub-hero py-20">
           <h2 className="font-bold text-[20px] md:text-[48px] leading-10 tracking-[-0.32px] text-center mb-20">
-            Nigeria's finest <span className="text-primary">Event Staff</span>,
-            all in one place.
+            Nigeria&apos;s finest{" "}
+            <span className="text-primary">Event Staff</span>, all in one place.
           </h2>
           {/* Here is a Carousel */}
           {/* <div className="section-details flex items-center justify-center mt-15">
@@ -189,10 +190,10 @@ export default function Home() {
           </div> */}
           <ScrollText
             text={text}
-            className="font-bold text-[20px] md:text-[58px] md:leading-15 tracking-[0.7px]"
+            className="font-bold text-[40px] text-center md:text-[58px] md:leading-15 tracking-[0.7px]"
           />
         </section>
-        <section className="offers font-primary pt-20 md:pt-0">
+        <section className="offers font-primary pt-20">
           <h2 className="font-bold text-[32px] leading-8 text-primary text-center font-secondary">
             The Marketplace for Excellence
           </h2>
@@ -213,18 +214,18 @@ export default function Home() {
               };
               return (
                 <div
-                  className="offer bg-[#ffffff] p-16 rounded-[30px] flex flex-col gap-4"
+                  className="offer group bg-[#ffffff] p-16 rounded-[30px] flex flex-col gap-4 border border-transparent shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
                   key={title}
                 >
                   <h3
-                    className="h-12 w-12 flex items-center justify-center rounded-full dark:text-black"
+                    className="h-12 w-12 flex items-center justify-center rounded-full dark:text-black transition-all duration-300 group-hover:scale-110 group-hover:text-primary"
                     style={{
                       backgroundColor: hexToRgba(bgColor, opacity / 100),
                     }}
                   >
                     {icon}
                   </h3>
-                  <h4 className="capitalize font-bold text-[20px] leading-8 text-[#1C1B1B]">
+                  <h4 className="capitalize font-bold text-[20px] leading-8 text-[#1C1B1B] transition-colors duration-300 group-hover:text-primary">
                     {title}
                   </h4>
                   <p className="font-normal text-[16px] leading-7.5 dark:text-black">
