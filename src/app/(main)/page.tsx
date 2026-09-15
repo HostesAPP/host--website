@@ -39,7 +39,7 @@ const Offerings = [
   {
     title: "Vetted Professionals",
     description:
-      "Every Hosté is identity-verified andnperformance-rated. Quality guaranteed.",
+      "Every Hosté is identity-verified and performance-rated. Quality guaranteed.",
     icon: <BsPersonCheck />,
     bgColor: "#D044081A",
     opacity: 10,
