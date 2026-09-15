@@ -92,17 +92,17 @@ export default function Home() {
         <section>
           <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-center overflow-hidden md:min-h-[calc(100vh-8.5rem)]">
             <div className="hero-content flex flex-col items-center justify-center px-6">
-              <p className="relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 dark:text-black">
+              <p className="relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10">
                 Book a{" "}
                 <span className="text-primary">{keyWords[currentIndex]}</span>{" "}
                 Today
               </p>
-              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block dark:text-black">
+              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
                 Hosté solves the challenge of helping brands and clubs quickly
                 find, book and reliably manage verified event staff without the
                 stress and uncertainty of traditional staffing.
               </p>
-              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden dark:text-black">
+              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden">
                 Hosté is a platform where Brands and Event Planners can book
                 Event Staffs.
               </p>
@@ -143,7 +143,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[clamp(22rem,62vh,44rem)] bg-linear-to-b from-transparent via-[#FAFAFA]/95 to-[#FAFAFA] md:block" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[clamp(22rem,62vh,44rem)] bg-linear-to-b from-transparent via-[var(--fade-mid)] to-[var(--background)] md:block" />
               <div className="user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] -translate-x-1/2 items-center gap-2 md:gap-5">
                 <Image
                   src={"/images/group-image.png"}
@@ -152,7 +152,7 @@ export default function Home() {
                   width={92}
                   className="h-auto w-20.5 shrink-0 md:w-23"
                 />
-                <p className="whitespace-nowrap font-semibold text-[7px] leading-6.5 min-[360px]:text-[8px] md:text-[14px] dark:text-black">
+                <p className="whitespace-nowrap font-semibold text-[7px] leading-6.5 min-[360px]:text-[8px] md:text-[14px]">
                   10,000+ Active Hostés working across Nigeria
                 </p>
               </div>
@@ -215,7 +215,7 @@ export default function Home() {
               };
               return (
                 <div
-                  className="offer group bg-[#ffffff] p-16 rounded-[30px] flex flex-col gap-4 border border-transparent shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
+                  className="offer group bg-[var(--card)] p-16 rounded-[30px] flex flex-col gap-4 border border-[var(--border-subtle)] shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
                   key={title}
                   style={
                     {
@@ -224,17 +224,17 @@ export default function Home() {
                   }
                 >
                   <h3
-                    className="h-12 w-12 flex items-center justify-center rounded-full dark:text-black transition-all duration-300 group-hover:scale-110 group-hover:text-primary"
+                    className="h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:text-white"
                     style={{
                       backgroundColor: hexToRgba(bgColor, opacity / 100),
                     }}
                   >
                     {icon}
                   </h3>
-                  <h4 className="capitalize font-bold text-[20px] leading-8 text-[#1C1B1B] transition-colors duration-300 group-hover:text-white">
+                  <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
                     {title}
                   </h4>
-                  <p className="font-normal text-[16px] leading-7.5 text-[#1C1B1B] transition-colors duration-300 group-hover:text-white dark:text-black">
+                  <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
                     {description}
                   </p>
                 </div>
@@ -248,7 +248,7 @@ export default function Home() {
               Your skills. Your rate.{" "}
               <span className="text-primary">Paid fast.</span>
             </p>
-            <p className="font-normal text-[16px] leading-6 tracking-normal lg:max-w-203.25 text-center text-[#5A4139]">
+            <p className="font-normal text-[16px] leading-6 tracking-normal lg:max-w-203.25 text-center text-muted-foreground">
               Join the elite network of hospitality professionals. Build a
               stunning professional profile, enjoy transparent earnings, and
               rely on guaranteed payments through our Green Escrow system.
@@ -278,7 +278,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-[#FAFAFA] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
+        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-(--prefooter-end) py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
           <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
             Join our journey of professional excellence.
           </h2>

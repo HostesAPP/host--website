@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NotFoundPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-white">
+    <main className="relative min-h-screen overflow-hidden bg-[var(--background)]">
       {/* Full-screen background images */}
       <div className="absolute inset-0 z-0">
         <Image
