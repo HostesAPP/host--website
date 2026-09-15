@@ -91,8 +91,8 @@ export default function Home() {
       <div className="container mx-auto px-6">
         <section>
           <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-center overflow-hidden md:min-h-[calc(100vh-8.5rem)]">
-            <div className="hero-content flex flex-col items-center justify-center px-6">
-              <p className="relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10">
+            <div className="hero-content flex flex-col w-full max-w-full items-center justify-center px-6">
+              <p className="relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 text-center">
                 Book a{" "}
                 <span className="text-primary">{keyWords[currentIndex]}</span>{" "}
                 Today
@@ -102,7 +102,7 @@ export default function Home() {
                 find, book and reliably manage verified event staff without the
                 stress and uncertainty of traditional staffing.
               </p>
-              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden">
+              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden text-wrap">
                 Hosté is a platform where Brands and Event Planners can book
                 Event Staffs.
               </p>
@@ -113,12 +113,13 @@ export default function Home() {
                   className="bg-[#ef5a22] text-white"
                 />
               </div>
-              <div className="images">
-                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-166">
+              <div className="images w-full">
+                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-screen left-1/2 -translate-x-1/2">
                   <Image
                     src={"/images/erica-mobile-2.png"}
                     fill
                     sizes="100vw"
+                    // sizes="(max-width: 768px) calc(100vw - 3rem)"
                     quality={100}
                     priority
                     alt="Hosté Worker"
