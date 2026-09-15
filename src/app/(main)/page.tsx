@@ -114,36 +114,42 @@ export default function Home() {
                 />
               </div>
               <div className="images">
-                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-95">
+                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-166">
                   <Image
-                    src={"/images/erica-mobile.png"}
+                    src={"/images/erica-mobile-2.png"}
                     fill
-                    sizes=""
+                    sizes="100vw"
+                    quality={100}
+                    priority
                     alt="Hosté Worker"
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute -left-4 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
+                <div className="left-image absolute left-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
                   <Image
                     src={"/images/salewa.png"}
                     fill
-                    sizes=""
+                    sizes="(min-width: 768px) 42vw, 100vw"
+                    quality={100}
+                    priority
                     alt="Hosté Worker"
-                    className="object-contain object-top"
+                    className="object-contain object-top -translate-x-8"
                   />
                 </div>
 
-                <div className="right-image absolute -right-6 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
+                <div className="right-image absolute right-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
                   <Image
                     src={"/images/erica.png"}
                     fill
                     alt="Bimpe Hosté worker"
-                    sizes=""
-                    className="object-contain object-top"
+                    sizes="(min-width: 768px) 42vw, 100vw"
+                    quality={100}
+                    priority
+                    className="object-contain object-top translate-x-8"
                   />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[clamp(22rem,62vh,44rem)] bg-linear-to-b from-transparent via-[var(--fade-mid)] to-[var(--background)] md:block" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[clamp(22rem,62vh,44rem)] bg-linear-to-b from-transparent via-(--fade-mid) to-background md:block" />
               <div className="user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] -translate-x-1/2 items-center gap-2 md:gap-5">
                 <Image
                   src={"/images/group-image.png"}
@@ -215,7 +221,7 @@ export default function Home() {
               };
               return (
                 <div
-                  className="offer group bg-[var(--card)] p-16 rounded-[30px] flex flex-col gap-4 border border-[var(--border-subtle)] shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
+                  className="offer group bg-card p-16 rounded-[30px] flex flex-col gap-4 border border-(--border-subtle) shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-(--offer-hover-bg) hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
                   key={title}
                   style={
                     {
