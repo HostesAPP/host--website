@@ -123,7 +123,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute -left-4 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
+                <div className="left-image absolute left-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
                   <Image
                     src={"/images/salewa.png"}
                     fill
@@ -133,7 +133,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="right-image absolute -right-6 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
+                <div className="right-image absolute right-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
                   <Image
                     src={"/images/erica.png"}
                     fill
