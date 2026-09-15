@@ -129,7 +129,7 @@ export default function Home() {
                     fill
                     sizes=""
                     alt="Hosté Worker"
-                    className="object-contain object-top"
+                    className="object-contain object-top -translate-x-8"
                   />
                 </div>
 
@@ -139,7 +139,7 @@ export default function Home() {
                     fill
                     alt="Bimpe Hosté worker"
                     sizes=""
-                    className="object-contain object-top"
+                    className="object-contain object-top translate-x-8"
                   />
                 </div>
               </div>
