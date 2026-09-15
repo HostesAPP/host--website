@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Montserrat } from "next/font/google";
 import type { ReactNode } from "react";
+import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
@@ -18,13 +19,18 @@ export const metadata: Metadata = {
   description: "Your No 1 staffing Platform",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html
       lang="en"
       className={`${hanken.variable} ${montserrat.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
