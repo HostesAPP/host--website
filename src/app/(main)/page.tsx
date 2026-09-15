@@ -114,11 +114,13 @@ export default function Home() {
                 />
               </div>
               <div className="images">
-                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-95">
+                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-166">
                   <Image
-                    src={"/images/erica-mobile.png"}
+                    src={"/images/erica-mobile-2.png"}
                     fill
-                    sizes=""
+                    sizes="100vw"
+                    quality={100}
+                    priority
                     alt="Hosté Worker"
                     className="object-cover"
                   />
@@ -127,7 +129,9 @@ export default function Home() {
                   <Image
                     src={"/images/salewa.png"}
                     fill
-                    sizes=""
+                    sizes="(min-width: 768px) 42vw, 100vw"
+                    quality={100}
+                    priority
                     alt="Hosté Worker"
                     className="object-contain object-top -translate-x-8"
                   />
@@ -138,7 +142,9 @@ export default function Home() {
                     src={"/images/erica.png"}
                     fill
                     alt="Bimpe Hosté worker"
-                    sizes=""
+                    sizes="(min-width: 768px) 42vw, 100vw"
+                    quality={100}
+                    priority
                     className="object-contain object-top translate-x-8"
                   />
                 </div>
