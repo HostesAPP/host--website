@@ -278,7 +278,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-(--prefooter-end) py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
+        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-[var(--prefooter-end)] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
           <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
             Join our journey of professional excellence.
           </h2>
