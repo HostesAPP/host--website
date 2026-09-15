@@ -13,7 +13,7 @@ const navlinks = [
   { id: 1, name: "Find Staff", href: "/find-staff" },
   { id: 2, name: "How it Works", href: "/how-it-works" },
   { id: 3, name: "About Us", href: "/about-us" },
-  { id: 4, name: "Get Started", href: "/about-us" },
+  { id: 4, name: "Get Started", href: "/find-staff" },
 ];
 
 export default function Navbar() {
