@@ -32,7 +32,7 @@ export default function SignUp() {
             <p className="desc font-medium tetx-[16px] ">
               Don’t just show up. Get on the list.
             </p>
-            <div className="input-fields flex flex-col space-y-3">
+            <div className="input-fields flex flex-col space-y-3 w-full md:w-fit">
               <Input type="text" placeholder="Full Name" />
               <Input type="email" placeholder="Type your email" />
             </div>
