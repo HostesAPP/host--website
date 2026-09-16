@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import GridBackground from "@/components/GridBackground";
 import { LuShield, LuLockKeyhole } from "react-icons/lu";
 import { HiBadgeCheck } from "react-icons/hi";
 
@@ -32,7 +33,8 @@ const steps = [
 
 export default function HowItWorksPage() {
   return (
-    <main className="how-it-works-page">
+    <main className="how-it-works-page pt-12 md:pt-16">
+      <GridBackground className="absolute left-0 -top-30 md:-top-34 -z-10 h-screen w-full" />
       <section className="how-hero">
         <h1>Seamless staffing from discovery to payment.</h1>
 
