@@ -32,7 +32,7 @@ const steps = [
 
 export default function HowItWorksPage() {
   return (
-    <main className="how-it-works-page">
+    <main className="how-it-works-page pt-12 md:pt-16">
       <section className="how-hero">
         <h1>Seamless staffing from discovery to payment.</h1>
 
