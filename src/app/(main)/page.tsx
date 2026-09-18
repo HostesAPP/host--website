@@ -266,22 +266,38 @@ export default function Home() {
               className="bg-[#ef5a22] text-white"
             />
           </div>
-          <div className="image relative flex items-center justify-center">
-            {/* <Image
-              src={"/images/rate-image.png"}
-              alt="An Hosté worker"
-              fill
-              sizes="(max-width: 768px) 350px, 650px"
-              className="object-cover rounded-[20px]"
-            /> */}
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              src="/images/hero-video.MP4"
-              className="rounded-[20px]"
-            />
+          <div className="relative min-h-100 flex flex-col">
+            <h3 className="capitalize text-[54px] lg:text-[120px] italic font-semibold text-primary leading-18 lg:leading-25">
+              what our people have to say...
+            </h3>
+            <p className="testimony text-primary text-[12px] md:text-[24px] absolute top-0 right-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0  rounded-[30px] md:min-w-130 max-w-70">
+              “Hosté made finding the right event staff feel simple. The
+              professionalism and energy they brought to the event stood out." –
+              Komolafe O.
+            </p>
+            <p className="testimony text-primary text-[12px] md:text-[24px] absolute bottom-20 md:bottom-0 left-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0 rounded-[30px] md:min-w-130 max-w-70">
+              "Working with Hosté has been smooth from start to finish.
+              Communication was clear, the team was reliable, and the experience
+              felt well organised." – Don K
+            </p>
+            <div className="stats flex gap-10 mt-auto md:ml-auto">
+              <div className="happy-clients">
+                <h3 className="figure font-black text-primary text-[24px] md:text-[48px]">
+                  10,000+
+                </h3>
+                <p className="capitalize font-normal text-[16px] md:text-[24px]">
+                  Happy clients
+                </p>
+              </div>
+              <div className="review">
+                <h3 className="figure font-black text-primary text-[24px] md:text-[48px]">
+                  50+
+                </h3>
+                <p className="capitalize font-normal text-[16px] md:text-[24px]">
+                  reviews
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
