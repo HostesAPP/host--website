@@ -562,19 +562,25 @@ body {
   --how-text: var(--foreground);
   --how-muted: var(--muted-foreground);
 
+  position: relative;
   min-height: 100vh;
   padding: 0 24px 80px;
-
-  background-color: var(--background);
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 60px 60px;
-
+  /* background-color: var(--background); */
   overflow: hidden;
 }
 
+.how-navbar {
+  background-color: #fffdf9;
+
+  background-image:
+    linear-gradient(rgba(235, 235, 235, 0.42) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(235, 235, 235, 0.42) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+}
+
 .how-it-works-page .how-hero {
+  position: relative;
   max-width: 650px;
   margin: 0 auto;
   padding: 0 0 38px;
