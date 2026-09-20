@@ -14,7 +14,7 @@ export default function Staff() {
       <div className="container px-6 mx-auto">
         <section>
           <h1 className="font-semibold text-[32px] leading-10 font-primary text-center">
-            Nigeria's finest event staff, all in one place.
+            Nigeria&apos;s finest event staff, all in one place.
           </h1>
           <p className="font-normal text-[16px] leading-6.75 text-center">
             Vetted professionals for high-end hospitality and events.
@@ -45,7 +45,10 @@ export default function Staff() {
                   {["bartender", "hostess", "usher", "supervisor"].map(
                     (category) => {
                       return (
-                        <div className="category flex items-center gap-2">
+                        <div
+                          className="category flex items-center gap-2"
+                          key={category}
+                        >
                           <input
                             type="checkbox"
                             name={category}
@@ -94,8 +97,11 @@ export default function Staff() {
                 </div>
               </div>
               <div className="card mt-7 flex gap-15">
-                {profiles.map((profile) => (
-                  <ProfileCard profile={profile} />
+                {profiles.map((profile, index) => (
+                  <ProfileCard
+                    key={`${profile.name}-${profile.hosteRole}-${index}`}
+                    profile={profile}
+                  />
                 ))}
               </div>
             </div>
