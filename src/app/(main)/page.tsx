@@ -92,21 +92,26 @@ export default function Home() {
         <section>
           <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-center overflow-hidden md:min-h-[calc(100vh-8.5rem)]">
             <div className="hero-content flex flex-col w-full max-w-full items-center justify-center px-6">
-              <p className="relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 text-center">
+              <p className="home-rise relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 text-center">
                 Book a{" "}
-                <span className="text-primary">{keyWords[currentIndex]}</span>{" "}
+                <span
+                  key={keyWords[currentIndex]}
+                  className="home-word-swap text-primary"
+                >
+                  {keyWords[currentIndex]}
+                </span>{" "}
                 Today
               </p>
-              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
+              <p className="home-rise home-delay-1 relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
                 Hosté solves the challenge of helping brands and clubs quickly
                 find, book and reliably manage verified event staff without the
                 stress and uncertainty of traditional staffing.
               </p>
-              <p className="relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden text-wrap">
+              <p className="home-rise home-delay-1 relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden text-wrap">
                 Hosté is a platform where Brands and Event Planners can book
                 Event Staffs.
               </p>
-              <div className="book-now relative z-20 mt-6">
+              <div className="home-rise home-delay-2 book-now relative z-20 mt-6">
                 <Button
                   text="Download Now"
                   onClick={() => router.push("/find-staff")}
@@ -114,7 +119,7 @@ export default function Home() {
                 />
               </div>
               <div className="images w-full">
-                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-screen left-1/2 -translate-x-1/2">
+                <div className="home-rise-center home-delay-3 mobile-image md:hidden mt-10 mb-3 relative h-95 w-screen left-1/2">
                   <Image
                     src={"/images/erica-mobile-2.png"}
                     fill
@@ -126,7 +131,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute left-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
+                <div className="home-float-left left-image absolute left-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] md:block">
                   <Image
                     src={"/images/salewa.png"}
                     fill
@@ -138,7 +143,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="right-image absolute right-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
+                <div className="home-float-right right-image absolute right-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] md:block">
                   <Image
                     src={"/images/erica.png"}
                     fill
@@ -150,8 +155,8 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[clamp(22rem,62vh,44rem)] bg-linear-to-b from-transparent via-(--fade-mid) to-background md:block" />
-              <div className="user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] -translate-x-1/2 items-center gap-2 md:gap-5">
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[clamp(22rem,62vh,44rem)] bg-linear-to-b from-transparent via-[var(--fade-mid)] to-[var(--background)] md:block" />
+              <div className="home-rise-center home-delay-4 user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] items-center gap-2 md:gap-5">
                 <Image
                   src={"/images/group-image.png"}
                   alt="user images"
@@ -210,43 +215,46 @@ export default function Home() {
             effortlessly.
           </p>
           <div className="offerings flex flex-col md:flex-row gap-6 my-10">
-            {Offerings.map(({ title, description, icon, bgColor, opacity }) => {
-              const hexToRgba = (hex: string, opacity: number) => {
-                const cleanHex = hex.replace("#", "");
+            {Offerings.map(
+              ({ title, description, icon, bgColor, opacity }, index) => {
+                const hexToRgba = (hex: string, opacity: number) => {
+                  const cleanHex = hex.replace("#", "");
 
-                const r = parseInt(cleanHex.substring(0, 2), 16);
-                const g = parseInt(cleanHex.substring(2, 4), 16);
-                const b = parseInt(cleanHex.substring(4, 6), 16);
+                  const r = parseInt(cleanHex.substring(0, 2), 16);
+                  const g = parseInt(cleanHex.substring(2, 4), 16);
+                  const b = parseInt(cleanHex.substring(4, 6), 16);
 
-                return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-              };
-              return (
-                <div
-                  className="offer group bg-card p-16 rounded-[30px] flex flex-col gap-4 border border-(--border-subtle) shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-(--offer-hover-bg) hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
-                  key={title}
-                  style={
-                    {
-                      "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
-                    } as CSSProperties
-                  }
-                >
-                  <h3
-                    className="h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:text-white"
-                    style={{
-                      backgroundColor: hexToRgba(bgColor, opacity / 100),
-                    }}
+                  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+                };
+                return (
+                  <div
+                    className="home-card-rise offer group bg-[var(--card)] p-16 rounded-[30px] flex flex-col gap-4 border border-[var(--border-subtle)] shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
+                    key={title}
+                    style={
+                      {
+                        "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
+                        "--home-card-delay": `${index * 120}ms`,
+                      } as CSSProperties
+                    }
                   >
-                    {icon}
-                  </h3>
-                  <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
-                    {title}
-                  </h4>
-                  <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
-                    {description}
-                  </p>
-                </div>
-              );
-            })}
+                    <h3
+                      className="h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:text-white"
+                      style={{
+                        backgroundColor: hexToRgba(bgColor, opacity / 100),
+                      }}
+                    >
+                      {icon}
+                    </h3>
+                    <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
+                      {title}
+                    </h4>
+                    <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
+                      {description}
+                    </p>
+                  </div>
+                );
+              },
+            )}
           </div>
         </section>
         <section className="rate py-20 justify-between font-primary space-y-20">
@@ -270,34 +278,16 @@ export default function Home() {
             <h3 className="capitalize text-[54px] lg:text-[120px] italic font-semibold text-primary leading-18 lg:leading-25">
               what our people have to say...
             </h3>
-            <p className="testimony text-primary text-[12px] md:text-[24px] absolute top-0 right-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0  rounded-[30px] md:min-w-130 max-w-70">
+            <p className="home-float-card testimony text-primary text-[12px] md:text-[24px] absolute top-0 right-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0  rounded-[30px] md:min-w-130 max-w-70">
               “Hosté made finding the right event staff feel simple. The
-              professionalism and energy they brought to the event stood out." –
-              Komolafe O.
+              professionalism and energy they brought to the event stood
+              out.&rdquo; – Komolafe O.
             </p>
-            <p className="testimony text-primary text-[12px] md:text-[24px] absolute bottom-20 md:bottom-0 left-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0 rounded-[30px] md:min-w-130 max-w-70">
-              "Working with Hosté has been smooth from start to finish.
+            <p className="home-float-card home-float-card-alt testimony text-primary text-[12px] md:text-[24px] absolute bottom-20 md:bottom-0 left-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0 rounded-[30px] md:min-w-130 max-w-70">
+              &ldquo;Working with Hosté has been smooth from start to finish.
               Communication was clear, the team was reliable, and the experience
-              felt well organised." – Don K
+              felt well organised.&rdquo; – Don K
             </p>
-            <div className="stats flex gap-10 mt-auto md:ml-auto">
-              <div className="happy-clients">
-                <h3 className="figure font-black text-primary text-[24px] md:text-[48px]">
-                  10,000+
-                </h3>
-                <p className="capitalize font-normal text-[16px] md:text-[24px]">
-                  Happy clients
-                </p>
-              </div>
-              <div className="review">
-                <h3 className="figure font-black text-primary text-[24px] md:text-[48px]">
-                  50+
-                </h3>
-                <p className="capitalize font-normal text-[16px] md:text-[24px]">
-                  reviews
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
