@@ -7,6 +7,7 @@ import GridBackground from "@/components/GridBackground";
 import { useRouter } from "next/navigation";
 import ScrollText from "@/components/ScrollText";
 import { CSSProperties, useEffect, useState } from "react";
+import { motion, type Variants } from "framer-motion";
 
 const CarouselItems = [
   {
@@ -73,6 +74,37 @@ const keyWords = [
 const text =
   "Hosté is a technology platform that connects brands, hotels, clubs, and event planners with verified, professional event staff ushers, bartenders, hosts, performers, and more on demand";
 
+const sectionVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 56,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.72,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 32,
+  },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.1,
+      duration: 0.56,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
+
 export default function Home() {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -116,7 +148,7 @@ export default function Home() {
                 />
               </div>
               <div className="images w-full">
-                <div className="home-rise-center home-delay-3 mobile-image md:hidden mt-10 mb-3 relative h-95 w-screen left-1/2">
+                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-screen left-1/2 -translate-x-1/2">
                   <Image
                     src={"/images/erica-mobile-2.png"}
                     fill
@@ -128,7 +160,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="home-float-left left-image absolute left-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] md:block">
+                <div className="left-image absolute left-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
                   <Image
                     src={"/images/salewa.png"}
                     fill
@@ -140,7 +172,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="home-float-right right-image absolute right-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] md:block">
+                <div className="right-image absolute right-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
                   <Image
                     src={"/images/erica.png"}
                     fill
@@ -168,7 +200,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="sub-hero py-20">
+        <motion.section
+          className="sub-hero py-20"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="font-bold text-[20px] md:text-[48px] leading-10 tracking-[-0.32px] text-center mb-20">
             Nigeria&apos;s finest{" "}
             <span className="text-primary">Event Staff</span>, all in one place.
@@ -202,8 +240,14 @@ export default function Home() {
             text={text}
             className="font-bold text-[40px] text-center md:text-[58px] md:leading-15 tracking-[0.7px]"
           />
-        </section>
-        <section className="offers font-primary pt-20">
+        </motion.section>
+        <motion.section
+          className="offers font-primary pt-20"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
           <h2 className="font-bold text-[32px] leading-8 text-primary text-center font-secondary">
             The Marketplace for Excellence
           </h2>
@@ -223,13 +267,17 @@ export default function Home() {
                 return `rgba(${r}, ${g}, ${b}, ${opacity})`;
               };
               return (
-                <div
-                  className="home-card-rise offer group bg-[var(--card)] p-16 rounded-[30px] flex flex-col gap-4 border border-[var(--border-subtle)] shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
+                <motion.div
+                  className="offer group bg-[var(--card)] p-16 rounded-[30px] flex flex-col gap-4 border border-[var(--border-subtle)] shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
                   key={title}
+                  custom={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.35 }}
                   style={
                     {
                       "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
-                      "--home-card-delay": `${index * 120}ms`,
                     } as CSSProperties
                   }
                 >
@@ -247,12 +295,18 @@ export default function Home() {
                   <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
                     {description}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
           </div>
-        </section>
-        <section className="rate py-20 justify-between font-primary space-y-20">
+        </motion.section>
+        <motion.section
+          className="rate py-20 justify-between font-primary space-y-20"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-description flex flex-col items-center justify-center space-y-8">
             <p className="font-semibold text-[24px] md:text-[32px] leading-10 tracking-[-0.32px]">
               Your skills. Your rate.{" "}
@@ -284,9 +338,15 @@ export default function Home() {
               felt well organised.&rdquo; – Don K
             </p>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-[var(--prefooter-end)] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
+        <motion.section
+          className="prefooter bg-linear-to-b from-[#EF5A22] to-[var(--prefooter-end)] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.35 }}
+        >
           <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
             Join our journey of professional excellence.
           </h2>
@@ -301,7 +361,7 @@ export default function Home() {
               onClick={() => router.push("/find-staff")}
             />
           </div>
-        </section>
+        </motion.section>
       </div>
     </div>
   );
