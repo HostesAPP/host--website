@@ -77,14 +77,14 @@ const text =
 const sectionVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 56,
+    y: 28,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.72,
-      ease: [0.16, 1, 0.3, 1],
+      duration: 1.05,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
@@ -92,15 +92,15 @@ const sectionVariants: Variants = {
 const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 32,
+    y: 18,
   },
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: index * 0.1,
-      duration: 0.56,
-      ease: [0.16, 1, 0.3, 1],
+      delay: index * 0.12,
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1],
     },
   }),
 };
