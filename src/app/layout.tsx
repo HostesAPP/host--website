@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Hanken_Grotesk, Montserrat } from "next/font/google";
 import type { ReactNode } from "react";
 import ThemeProvider from "@/components/ThemeProvider";
@@ -89,6 +90,7 @@ export default function RootLayout({
       className={`${hanken.variable} ${montserrat.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <GoogleTagManager gtmId="GTM-NFL5DVCS" />
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
