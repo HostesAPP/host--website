@@ -330,7 +330,7 @@ export default function Home() {
           </div>
           <div className="relative min-h-100 flex flex-col">
             <h3 className="capitalize text-[54px] lg:text-[120px] italic font-semibold text-primary leading-18 lg:leading-25">
-              what our people have to say...
+              what brands have to say...
             </h3>
             <p className="home-float-card testimony text-primary text-[12px] md:text-[24px] absolute top-0 right-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0  rounded-[30px] md:min-w-130 max-w-70">
               “Hosté made finding the right event staff feel simple. The
@@ -346,7 +346,7 @@ export default function Home() {
         </motion.section>
 
         <motion.section
-          className="prefooter bg-linear-to-b from-[#EF5A22] to-(--prefooter-end) py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8"
+          className="prefooter bg-[url('/images/section-bg.JPG')] bg-cover bg-center bg-no-repeat py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
