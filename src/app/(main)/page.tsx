@@ -126,7 +126,10 @@ export default function Home() {
             <div className="hero-content flex flex-col w-full max-w-full items-center justify-center px-6">
               <p className="home-rise relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 text-center">
                 Book a{" "}
-                <span key={keyWords[currentIndex]} className="home-word-swap text-primary">
+                <span
+                  key={keyWords[currentIndex]}
+                  className="home-word-swap text-primary"
+                >
                   {keyWords[currentIndex]}
                 </span>{" "}
                 Today
@@ -256,48 +259,50 @@ export default function Home() {
             effortlessly.
           </p>
           <div className="offerings flex flex-col md:flex-row gap-6 my-10">
-            {Offerings.map(({ title, description, icon, bgColor, opacity }, index) => {
-              const hexToRgba = (hex: string, opacity: number) => {
-                const cleanHex = hex.replace("#", "");
+            {Offerings.map(
+              ({ title, description, icon, bgColor, opacity }, index) => {
+                const hexToRgba = (hex: string, opacity: number) => {
+                  const cleanHex = hex.replace("#", "");
 
-                const r = parseInt(cleanHex.substring(0, 2), 16);
-                const g = parseInt(cleanHex.substring(2, 4), 16);
-                const b = parseInt(cleanHex.substring(4, 6), 16);
+                  const r = parseInt(cleanHex.substring(0, 2), 16);
+                  const g = parseInt(cleanHex.substring(2, 4), 16);
+                  const b = parseInt(cleanHex.substring(4, 6), 16);
 
-                return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-              };
-              return (
-                <motion.div
-                  className="offer group bg-[var(--card)] p-16 rounded-[30px] flex flex-col gap-4 border border-[var(--border-subtle)] shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
-                  key={title}
-                  custom={index}
-                  variants={cardVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.35 }}
-                  style={
-                    {
-                      "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
-                    } as CSSProperties
-                  }
-                >
-                  <h3
-                    className="h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:text-white"
-                    style={{
-                      backgroundColor: hexToRgba(bgColor, opacity / 100),
-                    }}
+                  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+                };
+                return (
+                  <motion.div
+                    className="offer group bg-[var(--card)] p-16 rounded-[30px] flex flex-col gap-4 border border-[var(--border-subtle)] shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
+                    key={title}
+                    custom={index}
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.35 }}
+                    style={
+                      {
+                        "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
+                      } as CSSProperties
+                    }
                   >
-                    {icon}
-                  </h3>
-                  <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
-                    {title}
-                  </h4>
-                  <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
-                    {description}
-                  </p>
-                </motion.div>
-              );
-            })}
+                    <h3
+                      className="h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:text-white"
+                      style={{
+                        backgroundColor: hexToRgba(bgColor, opacity / 100),
+                      }}
+                    >
+                      {icon}
+                    </h3>
+                    <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
+                      {title}
+                    </h4>
+                    <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
+                      {description}
+                    </p>
+                  </motion.div>
+                );
+              },
+            )}
           </div>
         </motion.section>
         <motion.section
@@ -325,12 +330,12 @@ export default function Home() {
           </div>
           <div className="relative min-h-100 flex flex-col">
             <h3 className="capitalize text-[54px] lg:text-[120px] italic font-semibold text-primary leading-18 lg:leading-25">
-              what our people have to say...
+              what brands have to say...
             </h3>
             <p className="home-float-card testimony text-primary text-[12px] md:text-[24px] absolute top-0 right-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0  rounded-[30px] md:min-w-130 max-w-70">
               “Hosté made finding the right event staff feel simple. The
-              professionalism and energy they brought to the event stood out.&rdquo; –
-              Komolafe O.
+              professionalism and energy they brought to the event stood
+              out.&rdquo; – Komolafe O.
             </p>
             <p className="home-float-card home-float-card-alt testimony text-primary text-[12px] md:text-[24px] absolute bottom-20 md:bottom-0 left-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0 rounded-[30px] md:min-w-130 max-w-70">
               &ldquo;Working with Hosté has been smooth from start to finish.
@@ -341,7 +346,7 @@ export default function Home() {
         </motion.section>
 
         <motion.section
-          className="prefooter bg-linear-to-b from-[#EF5A22] to-[var(--prefooter-end)] py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8"
+          className="prefooter bg-[url('/images/section-bg.JPG')] bg-cover bg-center bg-no-repeat py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
