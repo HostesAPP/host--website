@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import ScrollText from "@/components/ScrollText";
 import { CSSProperties, useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
+import CarouselBackground from "@/components/CarouselBackground";
 
 const CarouselItems = [
   {
@@ -105,6 +106,14 @@ const cardVariants: Variants = {
   }),
 };
 
+const images = [
+  "/images/carousel-1.png",
+  "/images/carousel-2.png",
+  "/images/carousel-3.png",
+  "/images/carousel-4.png",
+  "/images/carousel-5.png",
+];
+
 export default function Home() {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -119,10 +128,23 @@ export default function Home() {
   }, []);
   return (
     <div className="relative">
-      <GridBackground className="absolute left-0 -top-30 md:-top-34 -z-10 h-screen w-full" />
-      <div className="container mx-auto px-6">
+      {/* <GridBackground className="absolute left-0 -top-30 md:-top-34 -z-10 h-screen w-full" /> */}
+
+      <CarouselBackground images={images} speed={36}>
         <section>
-          <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-center overflow-hidden md:min-h-[calc(100vh-8.5rem)]">
+          <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-start overflow-hidden pt-12 md:min-h-[calc(100vh-8.5rem)] md:pt-[clamp(4.25rem,8vh,6.5rem)]">
+            <div className="hero-foreground-image hidden md:block">
+              <Image
+                src="/images/fathia-2.png"
+                alt="Hosté worker"
+                width={785}
+                height={514}
+                priority
+                draggable={false}
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 38vw, 1px"
+                className="h-auto w-full select-none"
+              />
+            </div>
             <div className="hero-content flex flex-col w-full max-w-full items-center justify-center px-6">
               <p className="home-rise relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 text-center">
                 Book a{" "}
@@ -153,7 +175,7 @@ export default function Home() {
               <div className="images w-full">
                 <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-screen left-1/2 -translate-x-1/2">
                   <Image
-                    src={"/images/erica-mobile-2.png"}
+                    src={"/images/fathia.png"}
                     fill
                     sizes="100vw"
                     // sizes="(max-width: 768px) calc(100vw - 3rem)"
@@ -163,32 +185,8 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute left-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
-                  <Image
-                    src={"/images/salewa.png"}
-                    fill
-                    sizes="(min-width: 768px) 42vw, 100vw"
-                    quality={100}
-                    priority
-                    alt="Hosté Worker"
-                    className="object-contain object-top -translate-x-8"
-                  />
-                </div>
-
-                <div className="right-image absolute right-0 top-1/2 z-0 hidden h-[min(800px,82vh)] w-[min(800px,42vw)] -translate-y-1/2 md:block">
-                  <Image
-                    src={"/images/erica.png"}
-                    fill
-                    alt="Bimpe Hosté worker"
-                    sizes="(min-width: 768px) 42vw, 100vw"
-                    quality={100}
-                    priority
-                    className="object-contain object-top translate-x-8"
-                  />
-                </div>
               </div>
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[clamp(22rem,62vh,44rem)] bg-linear-to-b from-transparent via-[var(--fade-mid)] to-[var(--background)] md:block" />
-              <div className="home-rise-center home-delay-4 user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] items-center gap-2 md:gap-5">
+              {/* <div className="home-rise-center home-delay-4 user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] items-center gap-2 md:gap-5">
                 <Image
                   src={"/images/group-image.png"}
                   alt="user images"
@@ -199,10 +197,12 @@ export default function Home() {
                 <p className="whitespace-nowrap font-semibold text-[7px] leading-6.5 min-[360px]:text-[8px] md:text-[14px]">
                   10,000+ Active Hostés working across Nigeria
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
+      </CarouselBackground>
+      <div className="container mx-auto px-6">
         <motion.section
           className="sub-hero py-20"
           variants={sectionVariants}

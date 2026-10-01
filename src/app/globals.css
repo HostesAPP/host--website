@@ -1117,3 +1117,141 @@ body {
     margin-top: 28px;
   }
 }
+
+/* Hero Carousel Background */
+
+.v-carousel {
+  position: relative;
+  min-height: calc(100vh - 8.5rem);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--background);
+}
+
+.v-carousel__stage {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(8.25rem, 17vh, 12rem);
+  z-index: 0;
+  width: min(126rem, 126vw);
+  height: clamp(10.5rem, 18vw, 15rem);
+  transform: translateX(-50%);
+  perspective: 1200px;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.v-carousel__plane {
+  position: absolute;
+  inset: 0;
+  left: 0;
+  width: 100%;
+}
+
+.v-carousel__track {
+  display: flex;
+  gap: clamp(0.75rem, 1.4vw, 1.4rem);
+  width: max-content;
+  height: 100%;
+  animation-name: v-carousel-marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.v-carousel__slide {
+  flex: 0 0 clamp(15rem, 18vw, 20rem);
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.v-carousel__slide:nth-child(odd) {
+  transform: translateY(0.4rem) rotate(-1.2deg);
+}
+
+.v-carousel__slide:nth-child(even) {
+  transform: translateY(-0.25rem) rotate(1.1deg);
+}
+
+.v-carousel__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero-foreground-image {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 3;
+  width: clamp(22rem, 38vw, 37rem);
+  max-width: calc(100vw - 2rem);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.v-carousel__content {
+  position: relative;
+  z-index: 4;
+  min-height: inherit;
+}
+
+@media (max-width: 768px) {
+  .v-carousel {
+    min-height: calc(100vh - 7.5rem);
+  }
+
+  .v-carousel__stage,
+  .hero-foreground-image {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .v-carousel__stage {
+    bottom: clamp(7.25rem, 14vh, 10rem);
+    height: clamp(11rem, 14vw, 14.5rem);
+  }
+
+  .hero-foreground-image {
+    width: clamp(25rem, 33vw, 37rem);
+  }
+}
+
+@media (max-height: 760px) and (min-width: 769px) {
+  .v-carousel__stage {
+    bottom: 5.5rem;
+    height: clamp(8.5rem, 15vw, 11rem);
+  }
+
+  .hero-foreground-image {
+    width: clamp(19rem, 31vw, 28rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v-carousel__track {
+    animation: none;
+  }
+}
+
+@keyframes v-carousel-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
