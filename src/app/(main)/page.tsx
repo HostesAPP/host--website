@@ -9,6 +9,7 @@ import ScrollText from "@/components/ScrollText";
 import { CSSProperties, useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import CarouselBackground from "@/components/CarouselBackground";
+import TestimonyCarousel from "@/components/TestimonyCarousel";
 
 const CarouselItems = [
   {
@@ -133,18 +134,6 @@ export default function Home() {
       <CarouselBackground images={images} speed={36}>
         <section>
           <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-start overflow-hidden pt-12 md:min-h-[calc(100vh-8.5rem)] md:pt-[clamp(4.25rem,8vh,6.5rem)]">
-            <div className="hero-foreground-image hidden md:block">
-              <Image
-                src="/images/fathia-2.png"
-                alt="Hosté worker"
-                width={785}
-                height={514}
-                priority
-                draggable={false}
-                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 38vw, 1px"
-                className="h-auto w-full select-none"
-              />
-            </div>
             <div className="hero-content flex flex-col w-full max-w-full items-center justify-center px-6">
               <p className="home-rise relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 text-center">
                 Book a{" "}
@@ -172,12 +161,33 @@ export default function Home() {
                   className="bg-[#ef5a22] text-white"
                 />
               </div>
-              <div className="images w-full">
+              <div className="hero-foreground-image md:block hidden">
+                <Image
+                  src="/images/fathia-1.png"
+                  alt="Hosté worker"
+                  width={421}
+                  height={514}
+                  priority
+                  draggable={false}
+                  sizes="(min-width: 1280px) 33vw, (min-width: 768px) 38vw, 1px"
+                  className="h-auto w-full select-none"
+                />
+              </div>
+              <div className="mobile-image">
+                <Image
+                  src="/images/fathia-mobile-2.png"
+                  alt="Hoste Worker"
+                  width={288}
+                  height={510}
+                  className="md:hidden object-cover"
+                />
+              </div>
+              {/* <div className="images w-full">
                 <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-screen left-1/2 -translate-x-1/2">
                   <Image
-                    src={"/images/fathia.png"}
+                    src={"/images/fathia-2.png"}
                     fill
-                    sizes="100vw"
+                    // sizes="100vw"
                     // sizes="(max-width: 768px) calc(100vw - 3rem)"
                     quality={100}
                     priority
@@ -185,7 +195,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* <div className="home-rise-center home-delay-4 user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] items-center gap-2 md:gap-5">
                 <Image
                   src={"/images/group-image.png"}
@@ -328,46 +338,36 @@ export default function Home() {
               className="bg-[#ef5a22] text-white"
             />
           </div>
-          <div className="relative min-h-100 flex flex-col">
-            <h3 className="capitalize text-[54px] lg:text-[120px] italic font-semibold text-primary leading-18 lg:leading-25">
-              what brands have to say...
-            </h3>
-            <p className="home-float-card testimony text-primary text-[12px] md:text-[24px] absolute top-0 right-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0  rounded-[30px] md:min-w-130 max-w-70">
-              “Hosté made finding the right event staff feel simple. The
-              professionalism and energy they brought to the event stood
-              out.&rdquo; – Komolafe O.
-            </p>
-            <p className="home-float-card home-float-card-alt testimony text-primary text-[12px] md:text-[24px] absolute bottom-20 md:bottom-0 left-0 bg-primary/10 backdrop-blur-[2px] md:py-6 md:px-4 p-3 md:p-0 rounded-[30px] md:min-w-130 max-w-70">
-              &ldquo;Working with Hosté has been smooth from start to finish.
-              Communication was clear, the team was reliable, and the experience
-              felt well organised.&rdquo; – Don K
-            </p>
-          </div>
-        </motion.section>
-
-        <motion.section
-          className="prefooter bg-[url('/images/section-bg.JPG')] bg-cover bg-center bg-no-repeat py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.35 }}
-        >
-          <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
-            Join our journey of professional excellence.
-          </h2>
-          <div className="buttons flex flex-col md:flex-row items-center justify-center gap-4 mt-10">
-            <Button
-              text="Hire Staff"
-              className="bg-white text-primary w-59.75"
-            />
-            <Button
-              text="Download Now"
-              className="bg-transparent border border-white text-white w-59.75"
-              onClick={() => router.push("/find-staff")}
-            />
-          </div>
+          <TestimonyCarousel />
         </motion.section>
       </div>
+      <motion.section
+        className="prefooter relative bg-primary bg-cover bg-center bg-no-repeat py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.35 }}
+      >
+        <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
+          Join our journey of professional excellence.
+        </h2>
+        <div className="buttons flex flex-col md:flex-row items-center justify-center gap-4 mt-10">
+          <Button text="Hire Staff" className="bg-white text-primary w-59.75" />
+          <Button
+            text="Download Now"
+            className="bg-transparent border border-white text-white w-59.75"
+            onClick={() => router.push("/find-staff")}
+          />
+        </div>
+        <div className="prefooter-logo hidden md:block md:-mb-40">
+          <Image
+            src={"/images/prefooter-logo.png"}
+            alt="Hosté Logo"
+            width={1073}
+            height={241}
+          />
+        </div>
+      </motion.section>
     </div>
   );
 }
