@@ -163,7 +163,7 @@ export default function Home() {
               </div>
               <div className="hero-foreground-image md:block hidden">
                 <Image
-                  src="/images/fathia-1.png"
+                  src="/images/fathy.png"
                   alt="Hosté worker"
                   width={421}
                   height={514}
