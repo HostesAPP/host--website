@@ -130,14 +130,21 @@ export default function Home() {
     <div className="relative">
       {/* <GridBackground className="absolute left-0 -top-30 md:-top-34 -z-10 h-screen w-full" /> */}
 
-      <CarouselBackground
-        images={images}
-        foregroundImage="/images/erica.png"
-        foregroundAlt="Hosté worker"
-        speed={36}
-      >
+      <CarouselBackground images={images} speed={36}>
         <section>
           <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-start overflow-hidden pt-12 md:min-h-[calc(100vh-8.5rem)] md:pt-[clamp(4.25rem,8vh,6.5rem)]">
+            <div className="hero-foreground-image hidden md:block">
+              <Image
+                src="/images/fathia-2.png"
+                alt="Hosté worker"
+                width={785}
+                height={514}
+                priority
+                draggable={false}
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 38vw, 1px"
+                className="h-auto w-full select-none"
+              />
+            </div>
             <div className="hero-content flex flex-col w-full max-w-full items-center justify-center px-6">
               <p className="home-rise relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 text-center">
                 Book a{" "}
@@ -179,7 +186,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="home-rise-center home-delay-4 user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] items-center gap-2 md:gap-5">
+              {/* <div className="home-rise-center home-delay-4 user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] items-center gap-2 md:gap-5">
                 <Image
                   src={"/images/group-image.png"}
                   alt="user images"
@@ -190,7 +197,7 @@ export default function Home() {
                 <p className="whitespace-nowrap font-semibold text-[7px] leading-6.5 min-[360px]:text-[8px] md:text-[14px]">
                   10,000+ Active Hostés working across Nigeria
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

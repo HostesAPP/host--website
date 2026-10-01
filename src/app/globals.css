@@ -1141,43 +1141,11 @@ body {
   );
 }
 
-.v-carousel__side {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  overflow: hidden;
-}
-
-.v-carousel__left-side {
-  left: 0;
-  padding-right: clamp(0.75rem, 1.5vw, 1.5rem);
-}
-
-.v-carousel__right-side {
-  right: 0;
-  padding-left: clamp(0.75rem, 1.5vw, 1.5rem);
-}
-
 .v-carousel__plane {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 118%;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-}
-
-.v-carousel__left-plane {
-  right: 0;
-  transform-origin: right center;
-  transform: rotateY(-18deg) translateZ(0);
-}
-
-.v-carousel__right-plane {
+  inset: 0;
   left: 0;
-  transform-origin: left center;
-  transform: rotateY(18deg) translateZ(0);
+  width: 100%;
 }
 
 .v-carousel__track {
@@ -1185,6 +1153,9 @@ body {
   gap: clamp(0.75rem, 1.4vw, 1.4rem);
   width: max-content;
   height: 100%;
+  animation-name: v-carousel-marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   will-change: transform;
 }
 
@@ -1213,7 +1184,7 @@ body {
   pointer-events: none;
 }
 
-.v-carousel__foreground {
+.hero-foreground-image {
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -1221,14 +1192,6 @@ body {
   width: clamp(22rem, 38vw, 37rem);
   max-width: calc(100vw - 2rem);
   transform: translateX(-50%);
-  pointer-events: none;
-}
-
-.v-carousel__foreground-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  user-select: none;
   pointer-events: none;
 }
 
@@ -1244,7 +1207,7 @@ body {
   }
 
   .v-carousel__stage,
-  .v-carousel__foreground {
+  .hero-foreground-image {
     display: none;
   }
 }
@@ -1255,7 +1218,7 @@ body {
     height: clamp(11rem, 14vw, 14.5rem);
   }
 
-  .v-carousel__foreground {
+  .hero-foreground-image {
     width: clamp(25rem, 33vw, 37rem);
   }
 }
@@ -1266,13 +1229,23 @@ body {
     height: clamp(8.5rem, 15vw, 11rem);
   }
 
-  .v-carousel__foreground {
+  .hero-foreground-image {
     width: clamp(19rem, 31vw, 28rem);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .v-carousel__track {
-    transform: translateX(0) !important;
+    animation: none;
+  }
+}
+
+@keyframes v-carousel-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
 }
