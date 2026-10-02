@@ -1133,7 +1133,6 @@ body {
 .brand-testimonies {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
-  padding: 0;
   background: var(--testimony-background);
 }
 
