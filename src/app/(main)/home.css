@@ -484,17 +484,17 @@
   top: 50%;
   left: 50%;
   z-index: -1;
-  width: 145%;
+  width: 132%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(
     circle,
     var(--hero-glow) 0%,
-    var(--hero-glow) 38%,
-    color-mix(in srgb, var(--hero-glow) 80%, transparent) 55%,
+    var(--hero-glow) 25%,
+    color-mix(in srgb, var(--hero-glow) 45%, transparent) 50%,
     color-mix(in srgb, var(--hero-glow) 0%, transparent) 76%
   );
-  filter: blur(24px);
+  filter: blur(9px);
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
@@ -508,8 +508,8 @@
 
 @media (max-width: 767px) {
   .mobile-image::before {
-    width: 110%;
-    filter: blur(8px);
+    width: 116%;
+    filter: blur(6px);
   }
 
   .mobile-image > img {
