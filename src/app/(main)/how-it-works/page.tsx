@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "./how-it-works.css";
 import Link from "next/link";
 import { LuShield, LuLockKeyhole } from "react-icons/lu";
 import { HiBadgeCheck } from "react-icons/hi";
