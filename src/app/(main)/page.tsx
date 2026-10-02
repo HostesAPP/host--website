@@ -7,6 +7,9 @@ import GridBackground from "@/components/GridBackground";
 import { useRouter } from "next/navigation";
 import ScrollText from "@/components/ScrollText";
 import { CSSProperties, useEffect, useState } from "react";
+import { motion, type Variants } from "framer-motion";
+import CarouselBackground from "@/components/CarouselBackground";
+import TestimonyCarousel from "@/components/TestimonyCarousel";
 
 const CarouselItems = [
   {
@@ -39,7 +42,7 @@ const Offerings = [
   {
     title: "Vetted Professionals",
     description:
-      "Every Hosté is identity-verified andnperformance-rated. Quality guaranteed.",
+      "Every Hosté is identity-verified and performance-rated. Quality guaranteed.",
     icon: <BsPersonCheck />,
     bgColor: "#D044081A",
     opacity: 10,
@@ -73,6 +76,45 @@ const keyWords = [
 const text =
   "Hosté is a technology platform that connects brands, hotels, clubs, and event planners with verified, professional event staff ushers, bartenders, hosts, performers, and more on demand";
 
+const sectionVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 28,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.05,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 18,
+  },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.12,
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
+const images = [
+  "/images/carousel-1.png",
+  "/images/carousel-2.png",
+  "/images/carousel-3.png",
+  "/images/carousel-4.png",
+  "/images/carousel-5.png",
+];
+
 export default function Home() {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -87,77 +129,97 @@ export default function Home() {
   }, []);
   return (
     <div className="relative">
-      <div className="container mx-auto px-6">
-        <GridBackground className="absolute left-0 -top-45 -z-10 h-screen w-full" />
+      {/* <GridBackground className="absolute left-0 -top-30 md:-top-34 -z-10 h-screen w-full" /> */}
+
+      <CarouselBackground images={images} speed={36}>
         <section>
-          <div className="hero-container relative flex flex-col md:justify-center items-center h-[90vh]">
-            <div className="hero-content flex flex-col justify-center items-center">
-              <p className="text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10">
+          <div className="hero-container relative left-1/2 flex min-h-[calc(100vh-7.5rem)] w-screen -translate-x-1/2 flex-col items-center justify-start overflow-hidden pt-12 md:min-h-[calc(100vh-8.5rem)] md:pt-[clamp(4.25rem,8vh,6.5rem)]">
+            <div className="hero-content flex flex-col w-full max-w-full items-center justify-center px-6">
+              <p className="home-rise relative z-20 text-[24px] md:text-[52px] font-semibold leading-6.5 tracking-normal mb-10 text-center">
                 Book a{" "}
-                <span className="text-primary">{keyWords[currentIndex]}</span>{" "}
+                <span
+                  key={keyWords[currentIndex]}
+                  className="home-word-swap text-primary"
+                >
+                  {keyWords[currentIndex]}
+                </span>{" "}
                 Today
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
+              <p className="home-rise home-delay-1 relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center max-w-200 hidden md:block">
                 Hosté solves the challenge of helping brands and clubs quickly
                 find, book and reliably manage verified event staff without the
                 stress and uncertainty of traditional staffing.
               </p>
-              <p className="text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden">
+              <p className="home-rise home-delay-1 relative z-20 text-[16px] font-semibold leading-6.5 tracking-normal text-center md:hidden text-wrap">
                 Hosté is a platform where Brands and Event Planners can book
                 Event Staffs.
               </p>
-              <div className="book-now mt-6">
+              <div className="home-rise home-delay-2 book-now relative z-20 mt-6">
                 <Button
-                  text="Book Now"
-                  onClick={() => router.push("/")}
+                  text="Download Now"
+                  onClick={() => router.push("/find-staff")}
                   className="bg-[#ef5a22] text-white"
                 />
               </div>
-              <div className="images">
-                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-95">
+              <div className="hero-foreground-image md:block hidden">
+                <Image
+                  src="/images/fathy.png"
+                  alt="Hosté worker"
+                  width={421}
+                  height={514}
+                  priority
+                  draggable={false}
+                  sizes="(min-width: 1280px) 33vw, (min-width: 768px) 38vw, 1px"
+                  className="h-auto w-full select-none"
+                />
+              </div>
+              <div className="mobile-image">
+                <Image
+                  src="/images/fathia-mobile-2.png"
+                  alt="Hoste Worker"
+                  width={288}
+                  height={510}
+                  className="md:hidden object-cover"
+                />
+              </div>
+              {/* <div className="images w-full">
+                <div className="mobile-image md:hidden mt-10 mb-3 relative h-95 w-screen left-1/2 -translate-x-1/2">
                   <Image
-                    src={"/images/erica-mobile.png"}
+                    src={"/images/fathia-2.png"}
                     fill
-                    sizes=""
+                    // sizes="100vw"
+                    // sizes="(max-width: 768px) calc(100vw - 3rem)"
+                    quality={100}
+                    priority
                     alt="Hosté Worker"
                     className="object-cover"
                   />
                 </div>
-                <div className="left-image absolute left-0 top-0 hidden md:block">
-                  <Image
-                    src={"/images/salewa.png"}
-                    height={800}
-                    width={800}
-                    sizes=""
-                    alt="Hosté Worker"
-                  />
-                </div>
-
-                <div className="right-image absolute right-0 top-0 hidden md:block">
-                  <Image
-                    src={"/images/erica.png"}
-                    height={800}
-                    width={800}
-                    alt="Bimpe Hosté worker"
-                    // className="object-contain"
-                  />
-                </div>
-              </div>
-              <div className="user-stats flex gap-5 items-center md:mt-75">
+              </div> */}
+              {/* <div className="home-rise-center home-delay-4 user-stats absolute bottom-2 left-1/2 z-20 flex max-w-[calc(100%-2rem)] items-center gap-2 md:gap-5">
                 <Image
                   src={"/images/group-image.png"}
                   alt="user images"
                   height={35}
                   width={92}
+                  className="h-auto w-20.5 shrink-0 md:w-23"
                 />
-                <p className="font-semibold text-[8px] md:text-[14px] leading-6.5">
+                <p className="whitespace-nowrap font-semibold text-[7px] leading-6.5 min-[360px]:text-[8px] md:text-[14px]">
                   10,000+ Active Hostés working across Nigeria
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
-        <section className="sub-hero py-20 md:py-10">
+      </CarouselBackground>
+      <div className="container mx-auto px-6">
+        <motion.section
+          className="sub-hero py-20"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="font-bold text-[20px] md:text-[48px] leading-10 tracking-[-0.32px] text-center mb-20">
             Nigeria&apos;s finest{" "}
             <span className="text-primary">Event Staff</span>, all in one place.
@@ -189,10 +251,16 @@ export default function Home() {
           </div> */}
           <ScrollText
             text={text}
-            className="font-bold text-[20px] md:text-[58px] md:leading-15 tracking-[0.7px]"
+            className="font-bold text-[40px] text-center md:text-[58px] md:leading-15 tracking-[0.7px]"
           />
-        </section>
-        <section className="offers font-primary pt-20 md:pt-0">
+        </motion.section>
+        <motion.section
+          className="offers font-primary pt-20"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
           <h2 className="font-bold text-[32px] leading-8 text-primary text-center font-secondary">
             The Marketplace for Excellence
           </h2>
@@ -201,46 +269,59 @@ export default function Home() {
             effortlessly.
           </p>
           <div className="offerings flex flex-col md:flex-row gap-6 my-10">
-            {Offerings.map(({ title, description, icon, bgColor, opacity }) => {
-              const hexToRgba = (hex: string, opacity: number) => {
-                const cleanHex = hex.replace("#", "");
+            {Offerings.map(
+              ({ title, description, icon, bgColor, opacity }, index) => {
+                const hexToRgba = (hex: string, opacity: number) => {
+                  const cleanHex = hex.replace("#", "");
 
-                const r = parseInt(cleanHex.substring(0, 2), 16);
-                const g = parseInt(cleanHex.substring(2, 4), 16);
-                const b = parseInt(cleanHex.substring(4, 6), 16);
+                  const r = parseInt(cleanHex.substring(0, 2), 16);
+                  const g = parseInt(cleanHex.substring(2, 4), 16);
+                  const b = parseInt(cleanHex.substring(4, 6), 16);
 
-                return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-              };
-              return (
-                <div
-                  className="offer group bg-card p-16 rounded-[30px] flex flex-col gap-4 border border-(--border-subtle) transition-colors duration-300 hover:bg-(--offer-hover-bg)"
-                  key={title}
-                  style={
-                    {
-                      "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
-                    } as CSSProperties
-                  }
-                >
-                  <h3
-                    className="h-12 w-12 flex items-center justify-center rounded-full transition-colors duration-300 group-hover:text-white"
-                    style={{
-                      backgroundColor: hexToRgba(bgColor, opacity / 100),
-                    }}
+                  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+                };
+                return (
+                  <motion.div
+                    className="offer group bg-[var(--card)] p-16 rounded-[30px] flex flex-col gap-4 border border-[var(--border-subtle)] shadow-[0_12px_40px_rgba(28,27,27,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#EF5A22]/20 hover:bg-[var(--offer-hover-bg)] hover:shadow-[0_24px_60px_rgba(239,90,34,0.14)]"
+                    key={title}
+                    custom={index}
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.35 }}
+                    style={
+                      {
+                        "--offer-hover-bg": hexToRgba(bgColor, opacity / 100),
+                      } as CSSProperties
+                    }
                   >
-                    {icon}
-                  </h3>
-                  <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
-                    {title}
-                  </h4>
-                  <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
-                    {description}
-                  </p>
-                </div>
-              );
-            })}
+                    <h3
+                      className="h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:text-white"
+                      style={{
+                        backgroundColor: hexToRgba(bgColor, opacity / 100),
+                      }}
+                    >
+                      {icon}
+                    </h3>
+                    <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
+                      {title}
+                    </h4>
+                    <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
+                      {description}
+                    </p>
+                  </motion.div>
+                );
+              },
+            )}
           </div>
-        </section>
-        <section className="rate py-20 justify-between font-primary space-y-20">
+        </motion.section>
+        <motion.section
+          className="rate py-20 justify-between font-primary space-y-20"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-description flex flex-col items-center justify-center space-y-8">
             <p className="font-semibold text-[24px] md:text-[32px] leading-10 tracking-[-0.32px]">
               Your skills. Your rate.{" "}
@@ -251,43 +332,42 @@ export default function Home() {
               stunning professional profile, enjoy transparent earnings, and
               rely on guaranteed payments through our Green Escrow system.
             </p>
-            <Button text="Become a Hosté" className="bg-[#ef5a22] text-white" />
-          </div>
-          <div className="image relative flex items-center justify-center">
-            {/* <Image
-              src={"/images/rate-image.png"}
-              alt="An Hosté worker"
-              fill
-              sizes="(max-width: 768px) 350px, 650px"
-              className="object-cover rounded-[20px]"
-            /> */}
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              src="/images/hero-video.MP4"
-              className="rounded-[20px]"
-            />
-          </div>
-        </section>
-
-        <section className="prefooter bg-linear-to-b from-[#EF5A22] to-(--prefooter-end) py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8">
-          <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
-            Join our journey of professional excellence.
-          </h2>
-          <div className="buttons flex flex-col md:flex-row items-center justify-center gap-4 mt-10">
             <Button
-              text="Hire Staff"
-              className="bg-white text-primary w-59.75"
-            />
-            <Button
-              text="Become a Host"
-              className="bg-transparent border border-white text-white w-59.75"
+              text="Download Now"
+              onClick={() => router.push("/find-staff")}
+              className="bg-[#ef5a22] text-white"
             />
           </div>
-        </section>
+          <TestimonyCarousel />
+        </motion.section>
       </div>
+      <motion.section
+        className="prefooter relative bg-primary bg-cover bg-center bg-no-repeat py-10 h-96.5 flex flex-col items-center justify-center md:mt-25 mb-8"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.35 }}
+      >
+        <h2 className="font-primary font-bold text-[32px] md:text-[48px] leading-14 text-center text-white">
+          Join our journey of professional excellence.
+        </h2>
+        <div className="buttons flex flex-col md:flex-row items-center justify-center gap-4 mt-10">
+          <Button text="Hire Staff" className="bg-white text-primary w-59.75" />
+          <Button
+            text="Download Now"
+            className="bg-transparent border border-white text-white w-59.75"
+            onClick={() => router.push("/find-staff")}
+          />
+        </div>
+        <div className="prefooter-logo hidden md:block md:-mb-40">
+          <Image
+            src={"/images/prefooter-logo.png"}
+            alt="Hosté Logo"
+            width={1073}
+            height={241}
+          />
+        </div>
+      </motion.section>
     </div>
   );
 }
