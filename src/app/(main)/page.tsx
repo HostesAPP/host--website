@@ -1,4 +1,5 @@
 "use client";
+import "./home.css";
 import Button from "@/components/button";
 import Image from "next/image";
 import { BsPersonCheck } from "react-icons/bs";
