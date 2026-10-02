@@ -10,12 +10,6 @@
   min-height: 100vh;
   padding: 0 24px 80px;
 
-  background-color: var(--background);
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 60px 60px;
-
   overflow: hidden;
 }
 
@@ -276,7 +270,6 @@
 @media (max-width: 600px) {
   .how-it-works-page {
     padding: 0 16px 50px;
-    background-size: 40px 40px;
   }
 
   .how-it-works-page .how-hero {
