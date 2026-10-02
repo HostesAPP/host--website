@@ -5,7 +5,10 @@ import Image from "next/image";
 
 export default function TestimonyCarousel() {
   return (
-    <section className="brand-testimonies" aria-labelledby="testimony-heading">
+    <section
+      className="brand-testimonies py-10"
+      aria-labelledby="testimony-heading"
+    >
       <h3 id="testimony-heading">
         What Our Brands Have
         <br />
