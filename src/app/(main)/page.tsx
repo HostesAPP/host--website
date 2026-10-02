@@ -167,10 +167,11 @@ export default function Home() {
                   src="/images/fathy.png"
                   alt="Hosté worker"
                   width={421}
-                  height={514}
+                  height={495}
+                  quality={100}
                   priority
                   draggable={false}
-                  sizes="(min-width: 1280px) 33vw, (min-width: 768px) 38vw, 1px"
+                  sizes="(min-width: 768px) 421px, 1px"
                   className="h-auto w-full select-none"
                 />
               </div>
@@ -179,8 +180,11 @@ export default function Home() {
                   src="/images/fathia-mobile-2.png"
                   alt="Hoste Worker"
                   width={288}
-                  height={510}
-                  className="md:hidden object-cover"
+                  height={422}
+                  quality={100}
+                  priority
+                  sizes="(max-width: 767px) 92vw, 1px"
+                  className="h-auto w-full md:hidden"
                 />
               </div>
               {/* <div className="images w-full">

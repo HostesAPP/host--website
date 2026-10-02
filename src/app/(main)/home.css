@@ -500,20 +500,23 @@
 }
 
 .hero-foreground-image {
-  width: clamp(22rem, 38vw, 37rem);
+  width: clamp(22rem, 29vw, 26.3125rem);
   max-width: 100%;
   flex-shrink: 0;
   pointer-events: none;
 }
 
 @media (max-width: 767px) {
+  .mobile-image {
+    width: min(21.75rem, 92vw);
+  }
+
   .mobile-image::before {
     width: 116%;
     filter: blur(6px);
   }
 
   .mobile-image > img {
-    filter: blur(0.2px);
     -webkit-mask-image: linear-gradient(
       to bottom,
       black 58%,
@@ -582,7 +585,7 @@
   }
 
   .hero-foreground-image {
-    width: clamp(25rem, 32vw, 37rem);
+    width: clamp(25rem, 29vw, 26.3125rem);
   }
 }
 
