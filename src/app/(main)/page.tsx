@@ -368,8 +368,16 @@ export default function Home() {
           <Image
             src={"/images/prefooter-logo.png"}
             alt="Hosté Logo"
-            width={1073}
-            height={241}
+            width={1074}
+            height={242}
+            className="prefooter-logo-light"
+          />
+          <Image
+            src={"/images/hoste-dark.png"}
+            alt="Hosté Logo"
+            width={1074}
+            height={242}
+            className="prefooter-logo-dark"
           />
         </div>
       </motion.section>
