@@ -13,7 +13,7 @@ export const testimonies: Testimony[] = [
       "Hosté made finding the right event staff feel simple. The professionalism and energy they brought to the event stood out!",
     name: "Komolafe O",
     role: "Managing Director",
-    image: "/images/veronica.png",
+    image: "/images/mide.jpg",
   },
   {
     id: "chinaza",
@@ -21,7 +21,7 @@ export const testimonies: Testimony[] = [
       "Working with Hosté has been smooth from start to finish. Communication was clear, the team was reliable, and the experience felt well organised.",
     name: "Chinaza N",
     role: "Club Manager",
-    image: "/images/veronica.png",
+    image: "/images/soma.jpg",
   },
   {
     id: "veronica",
@@ -29,6 +29,6 @@ export const testimonies: Testimony[] = [
       "Working with Hosté has been smooth from start to finish. Communication was clear, the team was reliable, and the experience felt well organised.",
     name: "Veronica W",
     role: "Manager",
-    image: "/images/veronica.png",
+    image: "/images/vanessa.jpg",
   },
 ];

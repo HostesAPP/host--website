@@ -39,6 +39,7 @@ export default function TestimonyCarousel() {
                         alt={`${name} image`}
                         width={44}
                         height={44}
+                        className="rounded-full"
                       />
                     </span>
                     <div>
