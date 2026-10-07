@@ -16,7 +16,10 @@ export default function FindStaff() {
               Download and Start booking now
             </p>
             <div className="find-staff-downloads">
-              <Link href={""} className="relative h-16.25 w-49">
+              <Link
+                href="https://whatsapp.com/channel/0029VbAnnPP0wajvbeWCn944"
+                className="relative h-16.25 w-49"
+              >
                 <Image
                   src={"/images/andriod-btn.png"}
                   alt="Andriod Link"
@@ -24,7 +27,10 @@ export default function FindStaff() {
                   className="object-cover"
                 />
               </Link>
-              <Link href={""} className="relative h-16.25 w-49">
+              <Link
+                href="https://whatsapp.com/channel/0029VbAnnPP0wajvbeWCn944"
+                className="relative h-16.25 w-49"
+              >
                 <Image
                   src={"/images/iphone-btn.png"}
                   alt="Apple Link"
