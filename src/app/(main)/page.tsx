@@ -164,14 +164,14 @@ export default function Home() {
               </div>
               <div className="hero-foreground-image md:block hidden">
                 <Image
-                  src="/images/fathy.png"
+                  src="/images/carolina.png"
                   alt="Hosté worker"
-                  width={421}
-                  height={495}
+                  width={3150}
+                  height={5604}
                   quality={100}
                   priority
                   draggable={false}
-                  sizes="(min-width: 768px) 421px, 1px"
+                  sizes="(min-width: 1280px) 320px, (min-width: 768px) 20vw, 1px"
                   className="h-auto w-full select-none"
                 />
               </div>
