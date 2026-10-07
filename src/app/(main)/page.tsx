@@ -177,7 +177,7 @@ export default function Home() {
               </div>
               <div className="mobile-image">
                 <Image
-                  src="/images/fathia-mobile-2.png"
+                  src="/images/carolina.png"
                   alt="Hoste Worker"
                   width={288}
                   height={422}
