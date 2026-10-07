@@ -24,15 +24,15 @@ export default function Navbar() {
 
   return (
     <nav className="bg-transparent z-100 sticky top-0 px-6 md:px-8">
-      <div className="nav-container mt-5 z-100 py-4 px-6 flex md:justify-center w-full md:w-fit mx-auto bg-surface rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15),inset_0_-4px_20px_-12px_rgba(0,0,0,0.15)]">
+      <div className="nav-container mt-5 z-100 flex md:justify-center w-full md:w-fit mx-auto bg-surface rounded-[50px] shadow-[inset_0_4px_20px_-12px_rgba(0,0,0,0.15),inset_0_-4px_20px_-12px_rgba(0,0,0,0.15)]">
         <div className="flex items-center justify-between md:space-x-18 w-full">
-          <div className="hamburger-menu md:hidden">
+          <div className="hamburger-menu md:hidden pl-6 py-4">
             <button className="cursor-pointer" onClick={() => setIsOpen(true)}>
               <GiHamburgerMenu />
             </button>
           </div>
 
-          <div className="image-container ml-auto">
+          <div className="image-container py-4 pr-6 md:pl-6 ml-auto">
             <Link
               href="/"
               className="relative md:block md:h-6.75 md:w-25.25 h-5 w-18.25 flex items-center justify-center mb-2"
@@ -86,7 +86,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="navlinks font-primary md:flex items-center gap-8 hidden">
+          <div className="navlinks font-primary md:flex items-center gap-8 hidden py-4">
             {navlinks.slice(0, 3).map(({ name, href, id }) => (
               <Link
                 key={id}
@@ -97,10 +97,10 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <div className="get-started hidden md:block">
+          <div className="get-started hidden md:block h-full py-1 pr-1">
             <Link
               href="/sign-up"
-              className="bg-primary flex items-center justify-center gap-2 text-white h-[42.66px] px-10.5 rounded-4xl"
+              className="bg-primary flex items-center justify-center gap-2 text-white h-full px-10.5 rounded-4xl"
             >
               <span>Get Started</span> <FaArrowRightLong />
             </Link>
