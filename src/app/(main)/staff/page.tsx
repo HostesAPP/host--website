@@ -1,4 +1,5 @@
 "use client";
+import "./staff.css";
 import Button from "@/components/button";
 import Switch from "@/components/switch";
 import Image from "next/image";
