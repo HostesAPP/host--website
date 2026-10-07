@@ -18,6 +18,9 @@
   --testimony-card: #f3f4f5;
   --testimony-avatar: #eceeea;
   --hero-glow: #ffffff;
+  --footer-background: #fafafa;
+  --footer-icon: #4d413d;
+  --footer-icon-border: #dedbd9;
 }
 
 @theme inline {
@@ -48,6 +51,9 @@
   --testimony-card: #202020;
   --testimony-avatar: #343434;
   --hero-glow: var(--background);
+  --footer-background: #101010;
+  --footer-icon: #f5f5f5;
+  --footer-icon-border: #4a4a4a;
   color-scheme: dark;
 }
 
@@ -69,6 +75,9 @@
     --testimony-card: #202020;
     --testimony-avatar: #343434;
     --hero-glow: var(--background);
+    --footer-background: #101010;
+    --footer-icon: #f5f5f5;
+    --footer-icon-border: #4a4a4a;
     color-scheme: dark;
   }
 }

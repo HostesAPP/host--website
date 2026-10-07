@@ -53,12 +53,12 @@ const socialLinks = [
 ];
 
 const socialIconClassName =
-  "flex h-9 w-9 items-center justify-center rounded-full border border-[#dedbd9] text-[#4d413d]";
+  "flex h-9 w-9 items-center justify-center rounded-full border border-[var(--footer-icon-border)] text-[var(--footer-icon)]";
 
 export default function Footer() {
   const pathname = usePathname();
   return (
-    <footer className="bg-background py-10">
+    <footer className="bg-[var(--footer-background)] text-foreground py-10">
       <div className="container mx-auto px-6">
         <div className="footer-container flex flex-col gap-5 md:grid md:grid-cols-5">
           <div className="footer-logo md:col-span-2 order-last md:order-first">
