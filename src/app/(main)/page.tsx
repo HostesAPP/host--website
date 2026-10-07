@@ -229,31 +229,7 @@ export default function Home() {
             Nigeria&apos;s finest{" "}
             <span className="text-primary">Event Staff</span>, all in one place.
           </h2>
-          {/* Here is a Carousel */}
-          {/* <div className="section-details flex items-center justify-center mt-15">
-            <div className="group-image relative h-138.25 w-207.75">
-              <Image
-                src={"/images/sub-section-image.png"}
-                alt="Section-Image"
-                fill
-                className="object-cover rounded-[20px]"
-              />
-              <div className="stats bg-[#D9D9D94D]/30 backdrop-blur-sm absolute bottom-8 md:bottom-4 left-4 px-10 py-5 h-20 md:h-30 rounded-full flex items-center justify-center space-x-5">
-                <div className="stat">
-                  <p className="num">500+</p>
-                  <p className="name">Verified Staff</p>
-                </div>
-                <div className="stat">
-                  <p className="num">1200+</p>
-                  <p className="name">Events Covered</p>
-                </div>
-                <div className="stat">
-                  <p className="num">Lagos</p>
-                  <p className="name">& Expanding</p>
-                </div>
-              </div>
-            </div>
-          </div> */}
+
           <ScrollText
             text={text}
             className="font-bold text-[40px] text-center md:text-[58px] md:leading-15 tracking-[0.7px]"

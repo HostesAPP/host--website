@@ -601,32 +601,6 @@
       transparent 100%
     );
   }
-
-  .mobile-image::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: url("/images/fathia-mobile-2.png") center / 100% 100% no-repeat;
-    filter: blur(1px);
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(0, 0, 0, 0.3) 68%,
-      rgba(0, 0, 0, 0.15) 80%,
-      rgba(0, 0, 0, 0.03) 89%,
-      transparent 96%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(0, 0, 0, 0.3) 68%,
-      rgba(0, 0, 0, 0.15) 80%,
-      rgba(0, 0, 0, 0.03) 89%,
-      transparent 96%
-    );
-    pointer-events: none;
-  }
 }
 
 .v-carousel__content {
