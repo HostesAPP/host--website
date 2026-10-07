@@ -301,17 +301,17 @@ export default function Home() {
                     }
                   >
                     <h3
-                      className="h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:text-white"
+                      className="h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:text-[var(--foreground)]"
                       style={{
                         backgroundColor: hexToRgba(bgColor, opacity / 100),
                       }}
                     >
                       {icon}
                     </h3>
-                    <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-white">
+                    <h4 className="capitalize font-bold text-[20px] leading-8 transition-colors duration-300 group-hover:text-[var(--foreground)]">
                       {title}
                     </h4>
-                    <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-white">
+                    <p className="font-normal text-[16px] leading-7.5 transition-colors duration-300 group-hover:text-[var(--foreground)]">
                       {description}
                     </p>
                   </motion.div>
