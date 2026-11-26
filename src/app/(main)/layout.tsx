@@ -7,8 +7,10 @@ export default function MainLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <div className="min-h-full flex flex-col">
-      <Navbar />
-      <main className="pt-10 z-10 relative">{children}</main>
+      <div className="flex flex-1 flex-col">
+        <Navbar />
+        <main className="pt-10 flex-1 z-10 relative">{children}</main>
+      </div>
       <Footer />
     </div>
   );
